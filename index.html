@@ -27,7 +27,7 @@
 
   /* ── RESET ── */
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow-x: hidden; }
+  html { overflow-x: hidden; max-width: 100vw; }
 
   body {
     background: #0a0a0a;
@@ -35,6 +35,7 @@
     min-height: 100vh;
     display: flex;
     overflow-x: hidden;
+    max-width: 100vw;
   }
 
   /* ── BACKGROUND LAYERS ── */
@@ -70,11 +71,11 @@
   }
 
   .sidebar-card {
-    padding: 14px 0;
+    padding: 3px 0;
     cursor: pointer;
     border-bottom: 1px solid var(--text-ghost);
     transition: all 0.3s ease-out;
-    text-align: right;
+    text-align: left;
     text-decoration: none;
     display: block;
   }
@@ -329,14 +330,124 @@
   /* ── LOGO ── */
   .logo {
     color: var(--text-bright);
-    position: absolute;
-    top: 40px;
+    position: fixed;
+    top: 30px;
     left: 30px;
+    z-index: 15;
   }
 
   .logo svg {
     height: 64px;
     width: auto;
+  }
+
+  /* ── SIDEBAR HIDDEN STATE ── */
+  .sidebar.sidebar-hidden {
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-out;
+  }
+
+  .sidebar.sidebar-hidden.open {
+    transform: translateX(0);
+  }
+
+  .sidebar:not(.sidebar-hidden) {
+    transition: transform 0.4s ease-out;
+  }
+
+  #content.content-full {
+    margin-left: 0;
+    width: 100vw;
+    transition: margin-left 0.4s ease-out, width 0.4s ease-out;
+  }
+
+  #content:not(.content-full) {
+    transition: margin-left 0.4s ease-out, width 0.4s ease-out;
+  }
+
+  /* ── HERO ── */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .hero-primary {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--text-bright);
+    line-height: 1.15;
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+
+  .hero-secondary {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 180%;
+    margin-bottom: 40px;
+  }
+
+  .hero-supporting {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--text-visible);
+    line-height: 180%;
+    margin-bottom: 40px;
+  }
+
+  .mobile-br { display: none; }
+
+  .scroll-arrow {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: var(--color-teal);
+    animation: pulse-bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-arrow svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  @keyframes pulse-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    50% { transform: translateX(-50%) translateY(10px); opacity: 0.5; }
+  }
+
+  @media (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+
+    .hero-primary {
+      font-size: 28px;
+    }
+
+    .mobile-br { display: inline; }
+    .desktop-br { display: none; }
+    .hero-primary br:not(.mobile-br) { display: none; }
+
+    .hero-secondary {
+      font-size: 16px;
+    }
+
+    .hero-supporting {
+      font-size: 15px;
+    }
+
+    .hero-section {
+      padding: 20px;
+    }
   }
 
   /* ── PROGRAM PAGE ── */
@@ -593,6 +704,205 @@
     100% { transform: translate(-50%,-50%) scale(1, 1); }
   }
 
+  /* ── CARD EXPAND PANEL ── */
+  .card-expand {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 0 24px;
+    margin-top: 0;
+  }
+
+  .card-expand.open {
+    max-height: 600px;
+    border-color: var(--text-ghost);
+    padding: 24px;
+    margin-top: 16px;
+  }
+
+  .card-expand-close {
+    font-size: 12px;
+    color: var(--text-subtle);
+    cursor: pointer;
+    float: right;
+    transition: color 0.2s;
+  }
+
+  .card-expand-close:hover {
+    color: var(--text-bright);
+  }
+
+  .practice-card.active {
+    border-color: var(--text-muted);
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-bar {
+    display: flex;
+    align-items: stretch;
+    gap: 3px;
+    margin-bottom: 0;
+  }
+
+  .timeline-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-time {
+    font-size: 13px;
+    color: var(--text-visible);
+    opacity: 0.5;
+    margin-bottom: 6px;
+  }
+
+  .timeline-color {
+    height: 6px;
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  .timeline-label {
+    font-size: 13px;
+    color: var(--text-visible);
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  .timeline-duration {
+    font-size: 11px;
+    color: var(--text-visible);
+    opacity: 0.4;
+  }
+
+  .timeline-note {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-visible);
+    opacity: 0.6;
+    padding: 24px 0;
+  }
+
+  .timeline-meta {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-visible);
+    opacity: 0.4;
+    padding-bottom: 32px;
+  }
+
+  /* Practice cards */
+  .practice-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .practice-card {
+    border: 1px solid var(--text-ghost);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .practice-card-icon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  .practice-card-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-bright);
+  }
+
+  .practice-card-duration {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.6;
+  }
+
+  .practice-card-desc {
+    font-size: 14px;
+    color: var(--text-visible);
+    opacity: 0.7;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .practice-card-link {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-teal);
+    text-decoration: none;
+    margin-top: auto;
+    padding-top: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .practice-card-link:hover {
+    opacity: 0.7;
+  }
+
+  /* Mobile timeline */
+  .timeline-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-mobile-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+  }
+
+  .timeline-mobile-bar {
+    width: 4px;
+    height: 40px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .timeline-mobile-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .timeline-mobile-label {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-visible);
+  }
+
+  .timeline-mobile-time {
+    font-size: 12px;
+    color: var(--text-visible);
+    opacity: 0.4;
+  }
+
+  @media (max-width: 768px) {
+    .timeline-bar { display: none; }
+    .timeline-mobile { display: flex; }
+    .practice-cards { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .practice-cards { grid-template-columns: 1fr; }
+  }
+
   /* ── CONTENT CONTAINER ── */
   #content {
     position: relative;
@@ -679,8 +989,9 @@
 
     #content {
       margin-left: 0;
-      width: 100vw;
+      width: 100%;
       padding-top: 56px;
+      overflow-x: hidden;
     }
 
     .program-anchor {
@@ -765,7 +1076,7 @@
     }
 
     .split-right {
-      width: 100vw;
+      width: calc(100% + 40px);
       margin-left: -20px;
       margin-right: -20px;
     }
@@ -802,15 +1113,17 @@
   <!-- Sidebar backdrop (mobile) -->
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
+  <!-- Logo (always visible) -->
+  <div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1326 469">
+      <path d="M 29 256 C 91 218, 155 183, 213 169 C 233 164, 252 164, 273 168 C 288 171, 300 175, 314 180" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
+      <path d="M 213 169 C 235 151, 252 133, 263 113 C 272 96, 276 76, 278 43" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
+      <text x="143" y="329" fill="currentColor" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="158" font-weight="700" letter-spacing="-5" textLength="1185" lengthAdjust="spacingAndGlyphs">authentic.me</text>
+    </svg>
+  </div>
+
   <!-- Sidebar navigation -->
   <nav class="sidebar">
-    <div class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1326 469">
-        <path d="M 29 256 C 91 218, 155 183, 213 169 C 233 164, 252 164, 273 168 C 288 171, 300 175, 314 180" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
-        <path d="M 213 169 C 235 151, 252 133, 263 113 C 272 96, 276 76, 278 43" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
-        <text x="143" y="329" fill="currentColor" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="158" font-weight="700" letter-spacing="-5" textLength="1185" lengthAdjust="spacingAndGlyphs">authentic.me</text>
-      </svg>
-    </div>
     <a class="sidebar-card active" href="#/" data-route="/">
       <div class="sidebar-label">Introduction</div>
     </a>
@@ -1139,6 +1452,12 @@ function updateNav(route) {
 }
 
 function renderRoute(match) {
+  // Cleanup previous page nav
+  if (window._cleanupProgramNav) {
+    window._cleanupProgramNav();
+    window._cleanupProgramNav = null;
+  }
+
   var content = document.getElementById('content');
   switch (match.name) {
     case 'program':

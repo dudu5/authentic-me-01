@@ -1,6 +1,16 @@
 function renderProgram(container) {
   container.innerHTML = '<div class="program-scroll">' +
 
+  // Hero
+  '<div class="hero-section program-anchor">' +
+    '<h1 class="hero-primary">You are the only<br class="mobile-br"> person you will<br><span style="color:var(--color-teal);">never</span><br class="mobile-br"> stop living with</h1>' +
+    '<p class="hero-secondary">Most of what you do every day runs on autopilot.<br class="desktop-br"> Without a map of yourself, you stay lost even when<br class="desktop-br"> everything looks fine from the outside.</p>' +
+    '<p class="hero-supporting">Quiet restlessness or emptiness on the inside.<br class="desktop-br"> High performance on the outside.<br class="desktop-br"> That gap is not a personal failing.<br class="desktop-br"> It is a missing map.</p>' +
+    '<div class="scroll-arrow" onclick="document.getElementById(\'s-what\').scrollIntoView({behavior:\'smooth\'})">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>' +
+    '</div>' +
+  '</div>' +
+
   // What this actually is — leads the page
   '<div id="s-what" class="section-2 program-anchor" style="padding-top:120px;">' +
     '<div class="section-label">What this actually is</div>' +
@@ -41,7 +51,7 @@ function renderProgram(container) {
   '</div>' +
 
   // The problem with the inner game
-  '<div class="split-section program-anchor">' +
+  '<div id="s-tough" class="split-section program-anchor">' +
     '<div class="split-left">' +
       '<div class="section-label">Why this is harder than it looks</div>' +
       '<h2 class="section-heading">Three things make it <span style="color:var(--color-red);">tough</span></h2>' +
@@ -69,7 +79,7 @@ function renderProgram(container) {
   '</div>' +
 
   // Ten mornings
-  '<div class="section-2 program-anchor">' +
+  '<div id="s-program" class="section-2 program-anchor">' +
     '<div class="section-label">The program</div>' +
     '<h2 class="section-heading" style="margin-bottom:12px;">Ten mornings.</h2>' +
     '<div class="body-text" style="opacity:0.7; font-size:18px;">5:30 AM · Weekdays · Two weeks · Eight people</div>' +
@@ -89,9 +99,100 @@ function renderProgram(container) {
   '</div>' +
 
   // What we actually do
-  '<div id="s-do" class="section-2 program-anchor">' +
+  '<div id="s-do" class="program-anchor" style="max-width:1120px; padding:120px 0 32px;">' +
     '<div class="section-label">What we actually do</div>' +
-    '<h2 class="section-heading">Every morning block works the same three muscles.</h2>' +
+    '<h2 class="section-heading">The shape of a morning</h2>' +
+    '<div class="body-text" style="opacity:0.6; margin-bottom:32px;">90 minutes · 5:30–7:00 · Monday–Friday · Held in a small group of men doing the same work.</div>' +
+
+    // Desktop timeline
+    '<div class="timeline-bar">' +
+      '<div class="timeline-segment" style="flex:20;">' +
+        '<div class="timeline-time">5:30</div>' +
+        '<div class="timeline-color" style="background:#E97787;"></div>' +
+        '<div class="timeline-label">Movement</div>' +
+        '<div class="timeline-duration">20 min</div>' +
+      '</div>' +
+      '<div class="timeline-segment" style="flex:15;">' +
+        '<div class="timeline-time">5:50</div>' +
+        '<div class="timeline-color" style="background:#61CCBA;"></div>' +
+        '<div class="timeline-label">Attention</div>' +
+        '<div class="timeline-duration">15 min</div>' +
+      '</div>' +
+      '<div class="timeline-segment" style="flex:30;">' +
+        '<div class="timeline-time">6:05</div>' +
+        '<div class="timeline-color" style="background:#F5C251;"></div>' +
+        '<div class="timeline-label">Perspective</div>' +
+        '<div class="timeline-duration">30 min</div>' +
+      '</div>' +
+      '<div class="timeline-segment" style="flex:15;">' +
+        '<div class="timeline-time">6:35</div>' +
+        '<div class="timeline-color" style="background:#70ACEB;"></div>' +
+        '<div class="timeline-label">Own work</div>' +
+        '<div class="timeline-duration">15 min</div>' +
+      '</div>' +
+      '<div class="timeline-segment" style="flex:10;">' +
+        '<div class="timeline-time">6:50</div>' +
+        '<div class="timeline-color" style="background:#61CCBA;"></div>' +
+        '<div class="timeline-label">Attention</div>' +
+        '<div class="timeline-duration">10 min</div>' +
+      '</div>' +
+      '<div class="timeline-segment" style="flex:0; align-items:flex-end;">' +
+        '<div class="timeline-time">7:00</div>' +
+        '<div style="height:6px;"></div>' +
+        '<div class="timeline-label"></div>' +
+      '</div>' +
+    '</div>' +
+
+    // Mobile timeline
+    '<div class="timeline-mobile">' +
+      '<div class="timeline-mobile-row"><div class="timeline-mobile-bar" style="background:#E97787;"></div><div class="timeline-mobile-info"><div class="timeline-mobile-label">Movement</div><div class="timeline-mobile-time">5:30 – 5:50 · 20 min</div></div></div>' +
+      '<div class="timeline-mobile-row"><div class="timeline-mobile-bar" style="background:#61CCBA;"></div><div class="timeline-mobile-info"><div class="timeline-mobile-label">Attention</div><div class="timeline-mobile-time">5:50 – 6:05 · 15 min</div></div></div>' +
+      '<div class="timeline-mobile-row"><div class="timeline-mobile-bar" style="background:#F5C251;"></div><div class="timeline-mobile-info"><div class="timeline-mobile-label">Perspective</div><div class="timeline-mobile-time">6:05 – 6:35 · 30 min</div></div></div>' +
+      '<div class="timeline-mobile-row"><div class="timeline-mobile-bar" style="background:#70ACEB;"></div><div class="timeline-mobile-info"><div class="timeline-mobile-label">Own work</div><div class="timeline-mobile-time">6:35 – 6:50 · 15 min</div></div></div>' +
+      '<div class="timeline-mobile-row"><div class="timeline-mobile-bar" style="background:#61CCBA;"></div><div class="timeline-mobile-info"><div class="timeline-mobile-label">Attention</div><div class="timeline-mobile-time">6:50 – 7:00 · 10 min</div></div></div>' +
+    '</div>' +
+
+
+    // Practice cards
+    '<div class="practice-cards">' +
+      '<div class="practice-card" data-explore="movement" onclick="toggleExplore(\'movement\')">' +
+        '<svg class="practice-card-icon" viewBox="0 0 24 24" style="stroke:#E97787;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>' +
+        '<div class="practice-card-title">Movement</div>' +
+        '<div class="practice-card-duration" style="color:#E97787;">20 minutes</div>' +
+        '<div class="practice-card-desc">Wake the body. Find your level.</div>' +
+        '<div class="practice-card-link">Explore →</div>' +
+      '</div>' +
+      '<div class="practice-card" data-explore="attention" onclick="toggleExplore(\'attention\')">' +
+        '<svg class="practice-card-icon" viewBox="0 0 24 24" style="stroke:none;"><circle cx="12" cy="12" r="4" fill="#61CCBA"/></svg>' +
+        '<div class="practice-card-title">Pure attention practice</div>' +
+        '<div class="practice-card-duration" style="color:#61CCBA;">15 minutes</div>' +
+        '<div class="practice-card-desc">Meditation or breathing practice.</div>' +
+        '<div class="practice-card-link">Explore →</div>' +
+      '</div>' +
+      '<div class="practice-card" data-explore="perspective" onclick="toggleExplore(\'perspective\')">' +
+        '<svg class="practice-card-icon" viewBox="0 0 24 24" style="stroke:#F5C251;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>' +
+        '<div class="practice-card-title">Perspective</div>' +
+        '<div class="practice-card-duration" style="color:#F5C251;">30 minutes</div>' +
+        '<div class="practice-card-desc">Where are you now? What are you aiming at?</div>' +
+        '<div class="practice-card-link">Explore →</div>' +
+      '</div>' +
+      '<div class="practice-card" data-explore="ownwork" onclick="toggleExplore(\'ownwork\')">' +
+        '<svg class="practice-card-icon" viewBox="0 0 24 24" style="stroke:#70ACEB;"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>' +
+        '<div class="practice-card-title">Own work</div>' +
+        '<div class="practice-card-duration" style="color:#70ACEB;">15 minutes</div>' +
+        '<div class="practice-card-desc">Write, reflect, and update the map.</div>' +
+        '<div class="practice-card-link">Explore →</div>' +
+      '</div>' +
+    '</div>' +
+
+    // Expand panel
+    '<div class="card-expand" id="cardExpand"></div>' +
+
+  '</div>' +
+
+  // Three muscles
+  '<div class="section-2 program-anchor">' +
+    '<h3 class="sub-heading" style="margin-top:0;">Every morning block works the same three muscles.</h3>' +
     '<div class="comparison" style="gap:0;">' +
       '<div style="flex:1; padding-right:40px; border-right:1px solid var(--text-ghost);">' +
         '<div class="comparison-title" style="color:#5FBFAB;">Attention</div>' +
@@ -113,68 +214,10 @@ function renderProgram(container) {
     '<p class="emphasis-text">The morning is those three muscles, worked in four settings.</p>' +
   '</div>' +
 
-  // Timeline
-  '<div class="program-anchor" style="max-width:1120px; padding:0 0 32px;">' +
-    '<div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:16px;">' +
-      '<h3 class="sub-heading" style="margin-top:0; margin-bottom:0;">The shape of a morning</h3>' +
-      '<span style="font-size:15px; font-weight:400; color:var(--text-visible); opacity:0.6;">90 minutes · 5:30–7:00</span>' +
-    '</div>' +
-    '<div class="program-divider"></div>' +
-    '<div style="margin-bottom:32px;">' +
-      '<div style="display:flex; justify-content:space-between; font-size:14px; color:var(--text-visible); opacity:0.5; margin-bottom:8px;">' +
-        '<span>5:30</span><span style="margin-left:8%;">5:50</span><span style="margin-left:4%;">6:05</span><span style="margin-left:16%;">6:35</span><span style="margin-left:12%;">6:50</span><span>7:00</span>' +
-      '</div>' +
-      '<div style="display:flex; height:6px; border-radius:3px; overflow:hidden; gap:3px;">' +
-        '<div style="flex:20; background:#E97787; border-radius:3px;"></div>' +
-        '<div style="flex:15; background:#61CCBA; border-radius:3px;"></div>' +
-        '<div style="flex:30; background:#F5C251; border-radius:3px;"></div>' +
-        '<div style="flex:15; background:#70ACEB; border-radius:3px;"></div>' +
-        '<div style="flex:10; background:#61CCBA; border-radius:3px;"></div>' +
-      '</div>' +
-      '<div style="display:flex; font-size:14px; color:var(--text-visible); opacity:0.7; margin-top:8px;">' +
-        '<span style="flex:20;">Movement</span><span style="flex:15;">Attention</span><span style="flex:30;">Perspective</span><span style="flex:15;">Own work</span><span style="flex:10;">Attention</span>' +
-      '</div>' +
-    '</div>' +
-    '<div class="program-divider" style="background:rgba(97,204,186,0.15);"></div>' +
-    '<div style="display:grid; grid-template-columns:1fr 1fr; gap:32px 80px; margin-bottom:32px;">' +
-      '<div><p style="font-size:15px; font-weight:500; color:var(--text-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:#E97787; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Movement</p><p style="font-size:15px; color:var(--text-visible); opacity:0.7;">Wake the body. Find your level.</p></div>' +
-      '<div><p style="font-size:15px; font-weight:500; color:var(--text-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:#61CCBA; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><circle cx="12" cy="12" r="4" fill="#61CCBA" stroke="none"/></svg>Pure attention practice</p><p style="font-size:15px; color:var(--text-visible); opacity:0.7;">Meditation or breathing practice.</p></div>' +
-      '<div><p style="font-size:15px; font-weight:500; color:var(--text-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:#F5C251; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Perspective</p><p style="font-size:15px; color:var(--text-visible); opacity:0.7;">Where are you now? What are you aiming at?</p></div>' +
-      '<div><p style="font-size:15px; font-weight:500; color:var(--text-bright); margin-bottom:8px; display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:#70ACEB; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>Own work</p><p style="font-size:15px; color:var(--text-visible); opacity:0.7;">Write, reflect, and update the map.</p></div>' +
-    '</div>' +
-    '<div class="program-divider" style="background:rgba(97,204,186,0.15);"></div>' +
-    '<div style="display:flex; justify-content:space-between; align-items:center; max-width:1120px; margin-top:32px;">' +
-      '<span style="font-size:15px; color:var(--text-visible); opacity:0.5;">Repeated every weekday for two weeks — 10 mornings</span>' +
-    '</div>' +
-  '</div>' +
-
-  // Detailed descriptions
-  '<div class="section-2 program-anchor" style="padding-top:32px; padding-bottom:0;">' +
-    '<h3 class="sub-heading" style="margin-top:0; display:flex; align-items:center; gap:12px;"><svg viewBox="0 0 24 24" style="width:24px; height:24px; stroke:#E97787; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>Movement</h3>' +
-    '<div class="body-text">' +
-      '<p>Twenty minutes at the start. Energy moving in the body before anything else happens.</p>' +
-      '<p>It also does something else. The sequence builds across the two weeks, and somewhere in that you meet your own edge — the point where your mind wants a bigger step than your body is currently at. What you do there is worth watching. Whether you push past it. Whether the critic shows up when someone else goes further. Whether you can find the place where you\'re working and not straining.</p>' +
-      '<p><strong>Finding your own level isn\'t a compromise. It\'s the skill.</strong></p>' +
-    '</div>' +
-    '<h3 class="sub-heading" style="display:flex; align-items:center; gap:12px;"><svg viewBox="0 0 24 24" style="width:24px; height:24px; stroke:none; fill:#61CCBA; flex-shrink:0;"><circle cx="12" cy="12" r="4"/></svg>Pure attention practice</h3>' +
-    '<div class="body-text">' +
-      '<p>Meditation or breathing, after the movement. You\'re training attention all morning, but here it\'s the whole task rather than a background condition.</p>' +
-      '<p>Breath is the lever from attention into the nervous system. Meditation is practice at the same thing in a different register — noticing where your attention has gone, and choosing where to put it before it leaves again.</p>' +
-    '</div>' +
-    '<h3 class="sub-heading" style="display:flex; align-items:center; gap:12px;"><svg viewBox="0 0 24 24" style="width:24px; height:24px; stroke:#F5C251; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Sharing perspective</h3>' +
-    '<div class="body-text">' +
-      '<p>The largest part of the two weeks, and it takes two forms.</p>' +
-      '<p><strong>Where are you now.</strong> Every morning, in the circle or in pairs. Simple question, and it stops being simple immediately — you find out how much is running in you and how little of it you can currently put into words. That gap is the information. You say it out loud, someone hears it, and the saying is what makes you know it.</p>' +
-      '<p><strong>Working a map together.</strong> Every morning something goes on the table — a model, a structure, a way of looking. Nobody explains it at you. Everyone looks and says what moves in them, and what surfaces is each person\'s angle, including ours. Most people have never done this. It\'s a different thing from talking about yourself, and it tends to show you your own shape more directly.</p>' +
-      '<p>Both are practice in the balance nobody teaches: when you\'re perceiving and when you\'re preparing to send.</p>' +
-    '</div>' +
-    '<h3 class="sub-heading" style="display:flex; align-items:center; gap:12px;"><svg viewBox="0 0 24 24" style="width:24px; height:24px; stroke:#70ACEB; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0;"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>Your own time</h3>' +
-    '<div class="body-text"><p>Space to sit undisturbed and articulate. Setting what you\'re aiming at. Coming back and updating it as the days move. No audience. Just the work of getting something into words for yourself first.</p></div>' +
-  '</div>' +
-
   // What ten mornings gives you
-  '<div class="section-2 program-anchor">' +
-    '<h3 class="sub-heading" style="margin-top:0;">What ten mornings gives you</h3>' +
+  '<div id="s-gives" class="section-2 program-anchor">' +
+    '<div class="section-label">What it brings</div>' +
+    '<h2 class="section-heading">What ten mornings gives you</h2>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The ground the game is played on</span></div>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The main moves</span></div>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Ten consecutive days of practice alongside other men</span></div>' +
@@ -280,6 +323,190 @@ function renderProgram(container) {
 
   // Initialize donut preview (delay for DOM to be ready)
   setTimeout(initProgramDonut, 50);
+  setTimeout(initProgramNav, 50);
+}
+
+function initProgramNav() {
+  var sections = [
+    { id: 's-what', label: 'What this actually is' },
+    { id: 's-tough', label: 'Why it\'s hard' },
+    { type: 'divider' },
+    { id: 's-program', label: 'The program' },
+    { id: 's-do', label: 'What we do' },
+    { id: 's-gives', label: 'What it brings' },
+    { type: 'divider' },
+    { id: 's-who', label: 'Who we are' },
+    { id: 's-details', label: 'The details' },
+    { id: 's-filter', label: 'Who it isn\'t for' }
+  ];
+
+  // Replace sidebar nav content
+  var navCards = document.querySelectorAll('.sidebar-card[data-route]');
+  navCards.forEach(function(c) { c.style.display = 'none'; });
+
+  // Build section nav
+  var sidebar = document.querySelector('.sidebar');
+  var navContainer = document.createElement('div');
+  navContainer.id = 'programNav';
+  navContainer.style.display = 'flex';
+  navContainer.style.flexDirection = 'column';
+
+  sections.forEach(function(s) {
+    if (s.type === 'divider') {
+      var div = document.createElement('div');
+      div.style.cssText = 'height:1px; background:var(--text-ghost); margin:8px 0;';
+      navContainer.appendChild(div);
+      return;
+    }
+    var link = document.createElement('a');
+    link.className = 'sidebar-card';
+    link.setAttribute('data-section', s.id);
+    link.style.textDecoration = 'none';
+    link.style.display = 'block';
+    link.innerHTML = '<div class="sidebar-label">' + s.label + '</div>';
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var el = document.getElementById(s.id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.innerWidth <= 768) closeSidebar();
+    });
+    navContainer.appendChild(link);
+  });
+
+  // Insert before the theme toggle
+  var themeToggle = document.querySelector('.sidebar-footer');
+  sidebar.insertBefore(navContainer, themeToggle);
+
+  // IntersectionObserver to highlight active section
+  var navLinks = navContainer.querySelectorAll('.sidebar-card');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        navLinks.forEach(function(l) { l.classList.remove('active'); });
+        var active = navContainer.querySelector('[data-section="' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+
+  sections.forEach(function(s) {
+    var el = document.getElementById(s.id);
+    if (el) observer.observe(el);
+  });
+
+  // Hero observer — hide sidebar when hero is in view
+  var sidebarEl = document.querySelector('.sidebar');
+  var contentEl = document.getElementById('content');
+  var arrowEl = document.querySelector('.scroll-arrow');
+
+  // Start hidden
+  sidebarEl.classList.add('sidebar-hidden');
+  contentEl.classList.add('content-full');
+
+  var heroObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        sidebarEl.classList.add('sidebar-hidden');
+        contentEl.classList.add('content-full');
+      } else {
+        sidebarEl.classList.remove('sidebar-hidden');
+        contentEl.classList.remove('content-full');
+      }
+    });
+  }, { threshold: 0 });
+
+  if (arrowEl) heroObserver.observe(arrowEl);
+
+  // Store cleanup function for when navigating away
+  window._cleanupProgramNav = function() {
+    navContainer.remove();
+    navCards.forEach(function(c) { c.style.display = ''; });
+    observer.disconnect();
+    heroObserver.disconnect();
+    sidebarEl.classList.remove('sidebar-hidden');
+    contentEl.classList.remove('content-full');
+  };
+}
+
+// ────────────────────────────────────────
+// Explore expand panels
+// ────────────────────────────────────────
+var exploreContent = {
+  movement: '<span class="card-expand-close" onclick="toggleExplore(null)">✕</span>' +
+    '<div class="body-text">' +
+      '<p>Twenty minutes at the start. Energy moving in the body before anything else happens.</p>' +
+      '<p>It also does something else. The sequence builds across the two weeks, and somewhere in that you meet your own edge — the point where your mind wants a bigger step than your body is currently at. What you do there is worth watching. Whether you push past it. Whether the critic shows up when someone else goes further. Whether you can find the place where you\'re working and not straining.</p>' +
+      '<p><strong>Finding your own level isn\'t a compromise. It\'s the skill.</strong></p>' +
+    '</div>',
+  attention: '<span class="card-expand-close" onclick="toggleExplore(null)">✕</span>' +
+    '<div class="body-text">' +
+      '<p>Meditation or breathing, after the movement. You\'re training attention all morning, but here it\'s the whole task rather than a background condition.</p>' +
+      '<p>Breath is the lever from attention into the nervous system. Meditation is practice at the same thing in a different register — noticing where your attention has gone, and choosing where to put it before it leaves again.</p>' +
+    '</div>',
+  perspective: '<span class="card-expand-close" onclick="toggleExplore(null)">✕</span>' +
+    '<div class="body-text">' +
+      '<p>The largest part of the two weeks, and it takes two forms.</p>' +
+      '<p><strong>Where are you now.</strong> Every morning, in the circle or in pairs. Simple question, and it stops being simple immediately — you find out how much is running in you and how little of it you can currently put into words. That gap is the information. You say it out loud, someone hears it, and the saying is what makes you know it.</p>' +
+      '<p><strong>Working a map together.</strong> Every morning something goes on the table — a model, a structure, a way of looking. Nobody explains it at you. Everyone looks and says what moves in them, and what surfaces is each person\'s angle, including ours. Most people have never done this. It\'s a different thing from talking about yourself, and it tends to show you your own shape more directly.</p>' +
+      '<p>Both are practice in the balance nobody teaches: when you\'re perceiving and when you\'re preparing to send.</p>' +
+    '</div>',
+  ownwork: '<span class="card-expand-close" onclick="toggleExplore(null)">✕</span>' +
+    '<div class="body-text">' +
+      '<p>Space to sit undisturbed and articulate. Setting what you\'re aiming at. Coming back and updating it as the days move. No audience. Just the work of getting something into words for yourself first.</p>' +
+    '</div>'
+};
+
+var currentExplore = null;
+
+function toggleExplore(key) {
+  var isMobile = window.innerWidth <= 768;
+  var panel = document.getElementById('cardExpand');
+  var cards = document.querySelectorAll('.practice-card');
+
+  // Close all inline panels
+  document.querySelectorAll('.card-expand-inline').forEach(function(el) {
+    el.remove();
+  });
+
+  // Close if same card or null
+  if (key === null || key === currentExplore) {
+    panel.classList.remove('open');
+    panel.innerHTML = '';
+    cards.forEach(function(c) { c.classList.remove('active'); });
+    currentExplore = null;
+    return;
+  }
+
+  cards.forEach(function(c) {
+    c.classList.toggle('active', c.getAttribute('data-explore') === key);
+  });
+  currentExplore = key;
+
+  if (isMobile) {
+    // Insert content inside the clicked card
+    panel.classList.remove('open');
+    panel.innerHTML = '';
+    var activeCard = document.querySelector('.practice-card[data-explore="' + key + '"]');
+    if (activeCard) {
+      var inline = document.createElement('div');
+      inline.className = 'card-expand-inline';
+      inline.innerHTML = '<div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--text-ghost);">' +
+        '<span class="card-expand-close" onclick="event.stopPropagation(); toggleExplore(null)">✕</span>' +
+        exploreContent[key].replace(/<span class="card-expand-close"[^>]*>[^<]*<\/span>/, '') +
+      '</div>';
+      activeCard.appendChild(inline);
+      setTimeout(function() {
+        activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  } else {
+    // Desktop: expand below cards row
+    panel.innerHTML = exploreContent[key] || '';
+    panel.classList.add('open');
+    setTimeout(function() {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
 }
 
 function initProgramDonut() {
@@ -308,9 +535,6 @@ function initProgramDonut() {
     });
   }
 
-  renderRandom();
-
-  // Ripple + wobble effects
   var donutContainer = document.querySelector('.donut-preview');
   var centerBtn = document.querySelector('.donut-center-btn');
 
@@ -329,15 +553,65 @@ function initProgramDonut() {
     centerBtn.style.animation = 'donut-wobble 1.5s ease-in-out';
   }
 
-  function fireDouble() {
-    fireRipple();
-    setTimeout(fireRipple, 300);
-    wobbleBtn();
+  // Unified cycle: render → fade in → wobble+waves → wait → fade out → repeat
+  function runCycle() {
+    // 1. New random scores + render
+    renderRandom();
+    var segs = Array.from(svg.querySelectorAll('.seg-hover'));
+    segs.reverse();
+
+    // Hide all children
+    for (var ci = 0; ci < svg.children.length; ci++) {
+      if (svg.children[ci].tagName !== 'defs') {
+        svg.children[ci].style.transition = 'none';
+        svg.children[ci].setAttribute('opacity', '0');
+      }
+    }
+    svg.offsetHeight;
+
+    // Show inner circle
+    var circle = svg.querySelector('circle');
+    if (circle) { circle.style.transition = 'opacity 0.5s ease-out'; circle.setAttribute('opacity', '1'); }
+
+    // 2. Fade in segments (cascade)
+    var fadeInTime = 100 + segs.length * 80 + 1500;
+    segs.forEach(function(s, i) {
+      var label = svg.querySelector('.seg-label[data-name="' + s.dataset.name + '"]');
+      setTimeout(function() {
+        s.style.transition = 'opacity 1.5s ease-in-out';
+        s.setAttribute('opacity', '1');
+        if (label) { label.style.transition = 'opacity 1.5s ease-in-out'; label.setAttribute('opacity', '1'); }
+      }, 100 + i * 80);
+    });
+
+    // 3. Wobble + waves after fade in completes
+    setTimeout(function() {
+      wobbleBtn();
+      fireRipple();
+      setTimeout(fireRipple, 300);
+    }, fadeInTime);
+
+    // 4. Wait, then fade out
+    var waitTime = fadeInTime + 4000;
+    setTimeout(function() {
+      var currentSegs = Array.from(svg.querySelectorAll('.seg-hover'));
+      currentSegs.forEach(function(s, i) {
+        var label = svg.querySelector('.seg-label[data-name="' + s.dataset.name + '"]');
+        setTimeout(function() {
+          s.style.transition = 'opacity 1s ease-in-out';
+          s.setAttribute('opacity', '0');
+          if (label) { label.style.transition = 'opacity 1s ease-in-out'; label.setAttribute('opacity', '0'); }
+        }, i * 100);
+      });
+
+      // 5. After fade out, restart cycle
+      var fadeOutTime = currentSegs.length * 100 + 1200;
+      setTimeout(runCycle, fadeOutTime);
+    }, waitTime);
   }
 
-  // Fire on load and every 10s
-  setTimeout(fireDouble, 1500);
-  setInterval(fireDouble, 10000);
+  // Start first cycle
+  runCycle();
 
   // Wobble + ripple on hover
   if (centerBtn) {
@@ -347,43 +621,4 @@ function initProgramDonut() {
       setTimeout(fireRipple, 300);
     });
   }
-
-  // Cycle with new random scores every 8 seconds
-  setInterval(function() {
-    var segs = Array.from(svg.querySelectorAll('.seg-hover'));
-    // Fade out
-    segs.forEach(function(s, i) {
-      var label = svg.querySelector('.seg-label[data-name="' + s.dataset.name + '"]');
-      setTimeout(function() {
-        s.style.transition = 'opacity 1s ease-in-out';
-        s.setAttribute('opacity', '0');
-        if (label) { label.style.transition = 'opacity 1s ease-in-out'; label.setAttribute('opacity', '0'); }
-      }, i * 100);
-    });
-    // Re-render after fade out
-    setTimeout(function() {
-      renderRandom();
-      var newSegs = Array.from(svg.querySelectorAll('.seg-hover'));
-      newSegs.reverse();
-      // Hide new children
-      for (var ci = 0; ci < svg.children.length; ci++) {
-        if (svg.children[ci].tagName !== 'defs') {
-          svg.children[ci].style.transition = 'none';
-          svg.children[ci].setAttribute('opacity', '0');
-        }
-      }
-      svg.offsetHeight;
-      var circle = svg.querySelector('circle');
-      if (circle) { circle.style.transition = 'opacity 0.5s ease-out'; circle.setAttribute('opacity', '1'); }
-      // Fade in
-      newSegs.forEach(function(s, i) {
-        var label = svg.querySelector('.seg-label[data-name="' + s.dataset.name + '"]');
-        setTimeout(function() {
-          s.style.transition = 'opacity 1.5s ease-in-out';
-          s.setAttribute('opacity', '1');
-          if (label) { label.style.transition = 'opacity 1.5s ease-in-out'; label.setAttribute('opacity', '1'); }
-        }, 100 + i * 80);
-      });
-    }, segs.length * 100 + 1000);
-  }, 8000);
 }
