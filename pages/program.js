@@ -229,11 +229,6 @@ function renderProgram(container) {
         '<div class="comparison-body"><p>Can you take in another person, or are you waiting for the gap so you can speak.</p></div>' +
       '</div>' +
     '</div>' +
-    '<div class="body-text">' +
-      '<p>Most conversations run at low quality because everyone is fighting for the microphone. Not rudely, not loudly — it can happen at a very slow pace. Watch how rarely a floor stays open for ten seconds with nobody filling it.</p>' +
-      '<p>The same thing runs inside you. Parts of your mind competing for the floor, none of them waiting, most of them talking over whatever is quieter underneath. What people call the monkey mind is a room with the same problem.</p>' +
-    '</div>' +
-    '<p class="emphasis-text">The morning is those three muscles, worked in four settings.</p>' +
   '</div>' +
 
   // What ten mornings gives you
@@ -302,43 +297,6 @@ function renderProgram(container) {
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you can\'t do all ten.</strong> Sessions are recorded, but the group is the mechanism, not the content. Half the mornings isn\'t half the value.</p></div></div>' +
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you already have a daily practice, a map, and people who see you in it</strong> — you probably don\'t need this. If you have the first two and not the third, you might.</p></div></div>' +
     '</div>' +
-  '</div>' +
-
-  // Resistance and certainty
-  '<div class="section-2 program-anchor">' +
-    '<h3 class="sub-heading" style="margin-top:0;">What resistance can feel like</h3>' +
-    '<div class="body-text"><p>So something in you will push back. It won\'t feel like resistance — it\'ll feel like good reasons. Not now. Not this. Later, when things calm down.</p></div>' +
-    '<h3 class="sub-heading">Why certainty is seductive</h3>' +
-    '<div class="body-text"><p>The same mechanism makes being wrong expensive. Being wrong means something has to change, and change costs, so your system would rather you were certain. That\'s worth knowing about yourself:</p></div>' +
-    '<p class="emphasis-text">The feeling of already understanding your own patterns is exactly what the defence looks like from inside.</p>' +
-    '<div class="body-text"><p>That\'s what you\'re up against. Not weakness. A system doing its job.</p></div>' +
-  '</div>' +
-
-  // Two ways this stays hidden
-  '<div class="section-2 program-anchor">' +
-    '<h3 class="sub-heading" style="margin-top:0;">Two ways this stays hidden.</h3>' +
-    '<div class="body-text" style="margin-bottom:32px;"><p>Most people assume these are different stories. They usually aren\'t.</p></div>' +
-    '<div class="comparison">' +
-      '<div class="comparison-col">' +
-        '<div class="comparison-title" style="opacity:0.5;">If you won</div>' +
-        '<div class="comparison-body">' +
-          '<p><strong>Nothing has visibly gone wrong.</strong></p>' +
-          '<p>The work holds, the people are there, you\'re doing what you\'re supposed to be doing — so there\'s no error signal and no reason to look.</p>' +
-          '<p>And it starts to feel illegitimate to admit anything\'s off.</p>' +
-          '<p>You got the thing. What exactly are you complaining about?</p>' +
-          '<p>The success doesn\'t just hide the problem; it makes the problem embarrassing to have.</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="comparison-col">' +
-        '<div class="comparison-title" style="opacity:0.5;">If you didn\'t</div>' +
-        '<div class="comparison-body">' +
-          '<p><strong>The outer game still has you.</strong></p>' +
-          '<p>Just from the other side — still measuring, still short, still quietly certain that the next version of winning is where your worth gets settled.</p>' +
-        '</div>' +
-      '</div>' +
-    '</div>' +
-    '<div class="program-divider"></div>' +
-    '<p class="emphasis-text">Either way you\'re in the same water.</p>' +
   '</div>' +
 
   '</div>'; // close program-scroll
