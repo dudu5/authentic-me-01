@@ -23,7 +23,7 @@ Single shell, one router. Content area renders based on URL path. Depth goes int
 Shared across all views. Contains:
 - Sidebar nav (reflects current path/depth)
 - Background canvas (image layer + color overlay)
-- Theme system (CSS variables, 6 themes, localStorage persistence)
+- Theme system (see Theme System below)
 - Content area container
 
 *Why:* These elements are identical on every page of the old site. They define the visual environment, not the content. Centralizing them means one place to change when the nav structure, themes, or visual layer evolves.
@@ -40,3 +40,14 @@ Shared across all views. Contains:
 Static HTML, no framework, no build step. One shared JS router. `donut.js` for chart rendering.
 
 *Why no framework:* The old site worked as plain HTML/JS. The content is mostly static with pockets of interactivity (donut, score slider, theme picker). A framework would add build complexity without solving a real problem. If interactivity grows significantly, this decision should be revisited.
+
+## Theme System
+
+- **13 theme colors** — default teal + 12 evenly spaced across the hue spectrum
+- **Text mode** — white or black, user toggle. All text opacity variations (bright, visible, muted, subtle, ghost) derived from the selected base color.
+- **2 sliders** — filter overlay opacity, background image opacity
+- **Image selector** — cycle through background images
+- **4 accent colors** — teal (#61CCBA), blue (#70ACEB), yellow (#F5C251), red (#E97787). Fixed across all themes. Used for functional UI elements (map, donut, indicators).
+- All settings persisted to localStorage.
+
+*Why user toggle for text:* With 13 theme colors and adjustable opacity, autodetect adds complexity for marginal benefit. The user can see what works. Simpler to build, simpler to maintain. The old site had the same text variations (bright/visible/muted/subtle/ghost) — we keep that system but derive from white or black base instead of hardcoding per theme.

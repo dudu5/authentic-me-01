@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>authentic.me</title>
+<link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" rel="stylesheet">
+<style>
+  /* ── CSS VARIABLES ── */
+  :root {
+    /* Text contrast scale — default: white */
+    --text-bright: rgba(255,255,255,1);
+    --text-visible: rgba(255,255,255,0.8);
+    --text-muted: rgba(255,255,255,0.5);
+    --text-subtle: rgba(255,255,255,0.3);
+    --text-ghost: rgba(255,255,255,0.08);
+
+    /* Theme overlay — default black */
+    --overlay-color: rgb(0, 0, 0);
+
+    /* Accent colors */
+    --color-teal: #61CCBA;
+    --color-blue: #70ACEB;
+    --color-yellow: #F5C251;
+    --color-red: #E97787;
+  }
+
+  /* ── RESET ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { overflow: hidden; }
+
+  body {
+    background: #0a0a0a;
+    font-family: 'Helvetica Neue', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* ── BACKGROUND LAYERS ── */
+  .bg-layer {
+    position: fixed;
+    inset: 0;
+    background: url('images/Background/ground_background.webp') center/cover no-repeat;
+    opacity: 0.25;
+    z-index: 0;
+  }
+
+  .color-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--overlay-color);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    border-right: 1px solid var(--text-ghost);
+  }
+
+  .sidebar-card {
+    padding: 14px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--text-ghost);
+    transition: all 0.3s ease-out;
+    text-align: right;
+    text-decoration: none;
+    display: block;
+  }
+
+  .sidebar-card:first-child {
+    border-top: 1px solid var(--text-ghost);
+  }
+
+  .sidebar-card.active .sidebar-label {
+    color: var(--text-bright);
+  }
+
+  .sidebar-label {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    transition: color 0.3s ease-out;
+  }
+
+  .sidebar-card:hover .sidebar-label {
+    color: var(--text-visible);
+  }
+
+  /* ── SIDEBAR FOOTER ── */
+  .sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-subtle);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+    user-select: none;
+  }
+
+  .sidebar-footer:hover {
+    color: var(--text-muted);
+  }
+
+  /* ── THEME PICKER ── */
+  .theme-picker {
+    position: fixed;
+    bottom: 44px;
+    left: 30px;
+    width: 160px;
+    z-index: 20;
+    display: none;
+  }
+
+  .theme-picker.open {
+    display: block;
+  }
+
+  .theme-reset {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-subtle);
+    cursor: pointer;
+    text-align: right;
+    margin-bottom: 6px;
+    transition: color 0.2s ease-out;
+  }
+
+  .theme-reset:hover {
+    color: var(--text-visible);
+  }
+
+  .theme-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .theme-swatch {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid var(--text-subtle);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+
+  .theme-swatch:hover {
+    border-color: var(--text-visible);
+  }
+
+  .theme-swatch.active {
+    border-color: var(--text-bright);
+    box-shadow: 0 0 0 2px var(--text-ghost);
+  }
+
+  /* Text mode toggle */
+  .text-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .text-mode-btn {
+    font-size: 10px;
+    font-weight: 400;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--text-subtle);
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    font-family: inherit;
+  }
+
+  .text-mode-btn.active {
+    border-color: var(--text-bright);
+    color: var(--text-bright);
+  }
+
+  .text-mode-label {
+    font-size: 10px;
+    color: var(--text-subtle);
+  }
+
+  /* Sliders */
+  .theme-sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .slider-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .slider-label {
+    font-size: 10px;
+    color: var(--text-subtle);
+    width: 32px;
+  }
+
+  .theme-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80px;
+    height: 2px;
+    background: var(--text-subtle);
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .theme-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-bright);
+    cursor: pointer;
+  }
+
+  .theme-range::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-bright);
+    cursor: pointer;
+    border: none;
+  }
+
+  .slider-value {
+    font-size: 13px;
+    color: var(--text-subtle);
+    min-width: 36px;
+    text-align: center;
+  }
+
+  /* Background image selector */
+  .bg-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .bg-arrow {
+    font-size: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+    user-select: none;
+    width: 24px;
+    text-align: center;
+    transition: color 0.2s;
+  }
+
+  .bg-arrow:hover {
+    color: var(--text-bright);
+  }
+
+  .bg-name {
+    font-size: 13px;
+    color: var(--text-subtle);
+    min-width: 50px;
+    text-align: center;
+  }
+
+  /* ── CONTENT CONTAINER ── */
+  #content {
+    position: relative;
+    margin-left: 220px;
+    width: calc(100vw - 220px);
+    min-height: 100vh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Background layers -->
+  <div class="bg-layer" id="bgLayer"></div>
+  <div class="color-overlay" id="colorOverlay"></div>
+
+  <!-- Sidebar navigation -->
+  <nav class="sidebar">
+    <a class="sidebar-card active" href="#/" data-route="/">
+      <div class="sidebar-label">Introduction</div>
+    </a>
+    <a class="sidebar-card" href="#/how" data-route="/how">
+      <div class="sidebar-label">How</div>
+    </a>
+    <a class="sidebar-card" href="#/needs" data-route="/needs">
+      <div class="sidebar-label">Your Needs</div>
+    </a>
+    <a class="sidebar-card" href="#/program" data-route="/program">
+      <div class="sidebar-label">The Program</div>
+    </a>
+
+    <!-- Footer: brand name, toggles theme picker -->
+    <span class="sidebar-footer" id="themeToggle">authentic.me</span>
+  </nav>
+
+  <!-- Theme picker -->
+  <div class="theme-picker" id="themePicker">
+    <div class="theme-reset" onclick="resetTheme()">Reset</div>
+    <div class="theme-grid" id="themeGrid"></div>
+    <div class="text-mode-toggle">
+      <span class="text-mode-label">Text</span>
+      <button class="text-mode-btn active" data-mode="white" onclick="setTextMode('white')">White</button>
+      <button class="text-mode-btn" data-mode="black" onclick="setTextMode('black')">Black</button>
+    </div>
+    <div class="theme-sliders">
+      <div class="slider-control">
+        <div class="slider-label">Filter</div>
+        <input type="range" class="theme-range" id="overlayRange" min="0" max="100" value="80" oninput="setOverlayOpacity(this.value)">
+        <div class="slider-value" id="overlayPct">80%</div>
+      </div>
+      <div class="slider-control">
+        <div class="slider-label">Image</div>
+        <input type="range" class="theme-range" id="bgRange" min="0" max="100" value="25" oninput="setBgOpacity(this.value)">
+        <div class="slider-value" id="bgPct">25%</div>
+      </div>
+    </div>
+    <div class="bg-selector">
+      <div class="bg-arrow" onclick="cycleBg(-1)">&#8249;</div>
+      <div class="bg-name" id="bgName">Default</div>
+      <div class="bg-arrow" onclick="cycleBg(1)">&#8250;</div>
+    </div>
+  </div>
+
+  <!-- Content container -->
+  <div id="content"></div>
+
+<script>
+// ────────────────────────────────────────
+// Theme colors: default teal + 12 hue-spaced
+// ────────────────────────────────────────
+var themeColors = [
+  { r: 0,   g: 0,   b: 0,   name: 'Default' },      // black
+  { r: 11,  g: 61,  b: 54,  name: 'Teal' },         // ~170 deg
+  { r: 61,  g: 28,  b: 11,  name: 'Vermilion' },   // 30
+  { r: 61,  g: 45,  b: 11,  name: 'Amber' },       // 60
+  { r: 50,  g: 61,  b: 11,  name: 'Lime' },        // 90
+  { r: 28,  g: 61,  b: 11,  name: 'Green' },       // 120
+  { r: 11,  g: 61,  b: 28,  name: 'Emerald' },     // 150
+  { r: 11,  g: 61,  b: 61,  name: 'Aqua' },          // 180
+  { r: 11,  g: 45,  b: 61,  name: 'Cyan' },        // 210
+  { r: 11,  g: 28,  b: 61,  name: 'Blue' },        // 240
+  { r: 28,  g: 11,  b: 61,  name: 'Indigo' },      // 270
+  { r: 45,  g: 11,  b: 61,  name: 'Violet' },      // 300
+  { r: 61,  g: 11,  b: 45,  name: 'Magenta' }      // 330
+];
+
+// ────────────────────────────────────────
+// Background images
+// ────────────────────────────────────────
+var backgrounds = [
+  { file: 'images/Background/ground_background.webp', name: 'Default' },
+  { file: 'images/Background/Background1.png', name: 'Bg 1' },
+  { file: 'images/Background/Background2.png', name: 'Bg 2' },
+  { file: 'images/Background/Background3.png', name: 'Bg 3' },
+  { file: 'images/Background/Background4.png', name: 'Bg 4' },
+  { file: 'images/Background/Background5.png', name: 'Bg 5' },
+  { file: 'images/Background/Background6.png', name: 'Bg 6' },
+  { file: 'images/Background/Background7.png', name: 'Bg 7' },
+  { file: 'images/Background/Background8.png', name: 'Bg 8' },
+  { file: 'images/Background/Background9.png', name: 'Bg 9' }
+];
+
+// ────────────────────────────────────────
+// DOM references
+// ────────────────────────────────────────
+var bgLayer = document.getElementById('bgLayer');
+var colorOverlay = document.getElementById('colorOverlay');
+var themePicker = document.getElementById('themePicker');
+var themeGrid = document.getElementById('themeGrid');
+
+// ────────────────────────────────────────
+// State — load from localStorage
+// ────────────────────────────────────────
+var state = {
+  themeIndex: parseInt(localStorage.getItem('am_theme') || '0'),
+  textMode: localStorage.getItem('am_text_mode') || 'white',
+  overlayOpacity: parseInt(localStorage.getItem('am_overlay_opacity') || '94'),
+  bgOpacity: parseInt(localStorage.getItem('am_bg_opacity') || '25'),
+  bgIndex: parseInt(localStorage.getItem('am_bg') || '0')
+};
+
+// ────────────────────────────────────────
+// Theme color swatches
+// ────────────────────────────────────────
+themeColors.forEach(function(color, i) {
+  var swatch = document.createElement('div');
+  swatch.className = 'theme-swatch' + (i === state.themeIndex ? ' active' : '');
+  swatch.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')';
+  swatch.setAttribute('data-index', i);
+  swatch.addEventListener('click', function() { setThemeColor(i); });
+  themeGrid.appendChild(swatch);
+});
+
+// ────────────────────────────────────────
+// Theme color
+// ────────────────────────────────────────
+function setThemeColor(index) {
+  state.themeIndex = index;
+  var c = themeColors[index];
+  document.documentElement.style.setProperty('--overlay-color', 'rgb(' + c.r + ',' + c.g + ',' + c.b + ')');
+  localStorage.setItem('am_theme', index);
+
+  // Update active swatch
+  document.querySelectorAll('.theme-swatch').forEach(function(el, i) {
+    el.classList.toggle('active', i === index);
+  });
+}
+
+// ────────────────────────────────────────
+// Text mode (white / black)
+// ────────────────────────────────────────
+function setTextMode(mode) {
+  state.textMode = mode;
+  var base = mode === 'white' ? '255,255,255' : '0,0,0';
+  document.documentElement.style.setProperty('--text-bright',  'rgba(' + base + ',1)');
+  document.documentElement.style.setProperty('--text-visible', 'rgba(' + base + ',0.8)');
+  document.documentElement.style.setProperty('--text-muted',   'rgba(' + base + ',0.5)');
+  document.documentElement.style.setProperty('--text-subtle',  'rgba(' + base + ',0.3)');
+  document.documentElement.style.setProperty('--text-ghost',   'rgba(' + base + ',0.08)');
+  localStorage.setItem('am_text_mode', mode);
+
+  // Update toggle buttons
+  document.querySelectorAll('.text-mode-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+  });
+}
+
+// ────────────────────────────────────────
+// Overlay opacity
+// ────────────────────────────────────────
+function setOverlayOpacity(val) {
+  state.overlayOpacity = parseInt(val);
+  colorOverlay.style.opacity = state.overlayOpacity / 100;
+  document.getElementById('overlayPct').textContent = state.overlayOpacity + '%';
+  document.getElementById('overlayRange').value = state.overlayOpacity;
+  localStorage.setItem('am_overlay_opacity', state.overlayOpacity);
+}
+
+// ────────────────────────────────────────
+// Background image opacity
+// ────────────────────────────────────────
+function setBgOpacity(val) {
+  state.bgOpacity = parseInt(val);
+  bgLayer.style.opacity = state.bgOpacity / 100;
+  document.getElementById('bgPct').textContent = state.bgOpacity + '%';
+  document.getElementById('bgRange').value = state.bgOpacity;
+  localStorage.setItem('am_bg_opacity', state.bgOpacity);
+}
+
+// ────────────────────────────────────────
+// Background image selector
+// ────────────────────────────────────────
+function applyBg() {
+  var bg = backgrounds[state.bgIndex];
+  bgLayer.style.backgroundImage = "url('" + bg.file + "')";
+  document.getElementById('bgName').textContent = bg.name;
+  localStorage.setItem('am_bg', state.bgIndex);
+}
+
+function cycleBg(delta) {
+  state.bgIndex = (state.bgIndex + delta + backgrounds.length) % backgrounds.length;
+  applyBg();
+}
+
+// ────────────────────────────────────────
+// Theme picker toggle
+// ────────────────────────────────────────
+document.getElementById('themeToggle').addEventListener('click', function() {
+  themePicker.classList.toggle('open');
+});
+
+// ────────────────────────────────────────
+// ────────────────────────────────────────
+// Reset to defaults
+// ────────────────────────────────────────
+function resetTheme() {
+  setThemeColor(0);
+  setTextMode('white');
+  setOverlayOpacity(94);
+  setBgOpacity(25);
+  state.bgIndex = 0;
+  applyBg();
+}
+
+// Apply saved state on load
+// ────────────────────────────────────────
+setThemeColor(state.themeIndex);
+setTextMode(state.textMode);
+setOverlayOpacity(state.overlayOpacity);
+setBgOpacity(state.bgOpacity);
+applyBg();
+
+// ────────────────────────────────────────
+// Router
+// ────────────────────────────────────────
+var navLinks = document.querySelectorAll('.sidebar-card[data-route]');
+
+function getRoute() {
+  var hash = window.location.hash || '#/';
+  // Strip the leading #
+  return hash.substring(1) || '/';
+}
+
+function matchRoute(route) {
+  // Returns { name, params } for the matched route
+  if (route === '/' || route === '') return { name: 'intro', params: {} };
+  if (route === '/how') return { name: 'how', params: {} };
+  if (route === '/needs') return { name: 'needs', params: {} };
+  if (route === '/program') return { name: 'program', params: {} };
+
+  // /how/:dimension
+  var howMatch = route.match(/^\/how\/([^\/]+)$/);
+  if (howMatch) return { name: 'how-dimension', params: { dimension: howMatch[1] } };
+
+  // /needs/:parent
+  var needsParent = route.match(/^\/needs\/([^\/]+)$/);
+  if (needsParent) return { name: 'needs-parent', params: { parent: needsParent[1] } };
+
+  // /needs/:parent/:child
+  var needsChild = route.match(/^\/needs\/([^\/]+)\/([^\/]+)$/);
+  if (needsChild) return { name: 'needs-child', params: { parent: needsChild[1], child: needsChild[2] } };
+
+  return { name: 'intro', params: {} };
+}
+
+function updateNav(route) {
+  // Determine which top-level nav item to highlight
+  var activeRoute = '/';
+  if (route.startsWith('/how')) activeRoute = '/how';
+  else if (route.startsWith('/needs')) activeRoute = '/needs';
+  else if (route.startsWith('/program')) activeRoute = '/program';
+
+  navLinks.forEach(function(link) {
+    var linkRoute = link.getAttribute('data-route');
+    link.classList.toggle('active', linkRoute === activeRoute);
+  });
+}
+
+function onRouteChange() {
+  var route = getRoute();
+  var match = matchRoute(route);
+  updateNav(route);
+  console.log('[router]', route, match);
+}
+
+window.addEventListener('hashchange', onRouteChange);
+onRouteChange();
+</script>
+</body>
+</html>
