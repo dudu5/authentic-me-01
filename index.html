@@ -27,14 +27,14 @@
 
   /* ── RESET ── */
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { overflow: hidden; }
+  html { overflow-x: hidden; }
 
   body {
     background: #0a0a0a;
     font-family: 'Helvetica Neue', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
     display: flex;
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   /* ── BACKGROUND LAYERS ── */
@@ -117,17 +117,6 @@
   }
 
   /* ── THEME PICKER MODAL ── */
-  .theme-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 19;
-    display: none;
-  }
-
-  .theme-backdrop.open {
-    display: block;
-  }
-
   .theme-picker {
     position: fixed;
     top: 50%;
@@ -136,7 +125,7 @@
     width: 200px;
     z-index: 20;
     display: none;
-    background: rgba(0,0,0,0.85);
+    background: var(--modal-bg, rgba(0,0,0,0.85));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--text-ghost);
@@ -846,7 +835,6 @@
   </nav>
 
   <!-- Theme picker -->
-  <div class="theme-backdrop" id="themeBackdrop"></div>
   <div class="theme-picker" id="themePicker">
     <div class="theme-picker-header" id="themePickerHeader">
       <span class="theme-picker-title">Theme</span>
@@ -908,7 +896,6 @@ var backgrounds = [
   { file: 'images/Background/Background6.png', name: 'Bg 6' },
   { file: 'images/Background/Background7.png', name: 'Bg 7' },
   { file: 'images/Background/Background8.png', name: 'Bg 8' },
-  { file: 'images/Background/Background9.png', name: 'Bg 9' }
 ];
 
 // ────────────────────────────────────────
@@ -968,6 +955,8 @@ function setTextMode(mode) {
   document.documentElement.style.setProperty('--text-muted',   'rgba(' + base + ',0.5)');
   document.documentElement.style.setProperty('--text-subtle',  'rgba(' + base + ',0.3)');
   document.documentElement.style.setProperty('--text-ghost',   'rgba(' + base + ',0.08)');
+  var modalBg = mode === 'white' ? 'rgba(0,0,0,0.85)' : 'rgba(255,255,255,0.85)';
+  document.documentElement.style.setProperty('--modal-bg', modalBg);
   localStorage.setItem('am_text_mode', mode);
 
   // Update toggle buttons
@@ -1033,25 +1022,28 @@ buildBgThumbs();
 // ────────────────────────────────────────
 // Theme picker modal
 // ────────────────────────────────────────
-var themeBackdrop = document.getElementById('themeBackdrop');
-
 function openThemePicker() {
   themePicker.classList.add('open');
-  themeBackdrop.classList.add('open');
 }
 
 function closeThemePicker() {
   themePicker.classList.remove('open');
-  themeBackdrop.classList.remove('open');
 }
 
-document.getElementById('themeToggle').addEventListener('click', function() {
+document.getElementById('themeToggle').addEventListener('click', function(e) {
+  e.stopPropagation();
   if (themePicker.classList.contains('open')) closeThemePicker();
   else openThemePicker();
 });
 
 document.getElementById('themePickerClose').addEventListener('click', closeThemePicker);
-themeBackdrop.addEventListener('click', closeThemePicker);
+
+// Close theme picker when clicking outside
+document.addEventListener('click', function(e) {
+  if (themePicker.classList.contains('open') && !themePicker.contains(e.target)) {
+    closeThemePicker();
+  }
+});
 
 // Dragging
 var dragHeader = document.getElementById('themePickerHeader');

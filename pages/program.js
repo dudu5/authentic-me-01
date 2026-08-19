@@ -44,7 +44,7 @@ function renderProgram(container) {
   '<div class="split-section program-anchor">' +
     '<div class="split-left">' +
       '<div class="section-label">Why this is harder than it looks</div>' +
-      '<h2 class="section-heading">Three things make it tough</h2>' +
+      '<h2 class="section-heading">Three things make it <span style="color:var(--color-red);">tough</span></h2>' +
       '<div class="comparison-title">1. Both games keep moving</div>' +
       '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>The outer world changes. What you need also changes.</span></div>' +
       '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A reading you took once doesn\'t stay accurate forever.</span></div>' +
@@ -71,10 +71,9 @@ function renderProgram(container) {
   // Ten mornings
   '<div class="section-2 program-anchor">' +
     '<div class="section-label">The program</div>' +
-    '<h2 class="section-heading">Ten mornings.</h2>' +
+    '<h2 class="section-heading" style="margin-bottom:12px;">Ten mornings.</h2>' +
     '<div class="body-text" style="opacity:0.7; font-size:18px;">5:30 AM · Weekdays · Two weeks · Eight people</div>' +
-    '<div class="body-text"><p>You get up before the rest of your life starts.</p></div>' +
-    '<div class="body-text"><p>Ninety minutes total, and you\'re done by seven.</p></div>' +
+    '<div class="body-text"><p>You get up before the rest of your life starts. Ninety minutes total, and you\'re done by seven.</p></div>' +
     '<div class="body-text"><p>Every morning follows the same shape.</p></div>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Twenty minutes of movement.</span></div>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Where are you right now.</span></div>' +
@@ -82,20 +81,11 @@ function renderProgram(container) {
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>What did you actually learn since yesterday.</span></div>' +
     '<div class="body-text" style="margin-top:24px;"><p>That\'s it. Ten times.</p></div>' +
     '<div class="body-text"><p>Two weeks doesn\'t change anything essential in you. We\'re not going to claim it does.</p></div>' +
-    '<div class="body-text"><p>What it does is hand you the tool and get you started — and ten days of practice at the part that\'s hard alone: coming back to it, whether or not you feel like it.</p></div>' +
+    '<div class="body-text"><p>What it does is hand you:</p></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>The tool and get you started</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Practice at the part that\'s hard alone</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Coming back to it</span></div>' +
     '<div class="body-text"><p>You leave knowing how to locate yourself, and with ten days of evidence that you can keep doing it.</p></div>' +
-  '</div>' +
-
-  '<div id="s-arena" class="section-2 program-anchor">' +
-    '<h3 class="sub-heading" style="margin-top:0;">What resistance can feel like</h3>' +
-    '<div class="body-text"><p>So something in you will push back. It won\'t feel like resistance — it\'ll feel like good reasons. Not now. Not this. Later, when things calm down.</p></div>' +
-    '<h3 class="sub-heading">Why certainty is seductive</h3>' +
-    '<div class="body-text"><p>The same mechanism makes being wrong expensive. Being wrong means something has to change, and change costs, so your system would rather you were certain. That\'s worth knowing about yourself:</p></div>' +
-    '<p class="emphasis-text">The feeling of already understanding your own patterns is exactly what the defence looks like from inside.</p>' +
-    '<div class="body-text"><p>That\'s what you\'re up against. Not weakness. A system doing its job.</p></div>' +
-    '<h3 class="sub-heading">What ten mornings gives you</h3>' +
-    '<div class="body-text"><p>is the ground the game is played on, the main moves, and ten consecutive days of playing it alongside other men doing the same. The ground holds — attention, the body, friction, what you actually need. Those don\'t get replaced. You keep meeting them at different depths.</p></div>' +
-    '<div class="body-text"><p><strong>Your position on that ground doesn\'t hold.</strong> Which is why locating yourself is something you keep doing rather than something you finish.</p></div>' +
   '</div>' +
 
   // What we actually do
@@ -182,6 +172,29 @@ function renderProgram(container) {
     '<div class="body-text"><p>Space to sit undisturbed and articulate. Setting what you\'re aiming at. Coming back and updating it as the days move. No audience. Just the work of getting something into words for yourself first.</p></div>' +
   '</div>' +
 
+  // What ten mornings gives you
+  '<div class="section-2 program-anchor">' +
+    '<h3 class="sub-heading" style="margin-top:0;">What ten mornings gives you</h3>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The ground the game is played on</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The main moves</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Ten consecutive days of practice alongside other men</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A clear way to locate yourself</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Evidence that you can keep coming back to it</span></div>' +
+    '<div style="height:16px;"></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The habit of checking your position — instead of letting autopilot run the show</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A simple daily structure that doesn\'t rely on willpower</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Practice speaking what\'s actually true out loud</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Real-time feedback from other men who are in the same work</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A small group that sees you doing the work, not just the results</span></div>' +
+    '<div class="comparison-title" style="margin-top:32px;">From the daily movement</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Wakes the body before the mind takes over</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Gets energy moving instead of starting from stuck</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Helps you notice where you\'re actually at</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Builds the habit of showing up even when motivation is low</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Creates a clear start to the morning</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Lets you meet your own edge without turning it into a performance</span></div>' +
+  '</div>' +
+
   // Who we are
   '<div id="s-who" class="section-2 program-anchor">' +
     '<div class="section-label">Who we are</div>' +
@@ -224,6 +237,16 @@ function renderProgram(container) {
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you can\'t do all ten.</strong> Sessions are recorded, but the group is the mechanism, not the content. Half the mornings isn\'t half the value.</p></div></div>' +
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you already have a daily practice, a map, and people who see you in it</strong> — you probably don\'t need this. If you have the first two and not the third, you might.</p></div></div>' +
     '</div>' +
+  '</div>' +
+
+  // Resistance and certainty
+  '<div class="section-2 program-anchor">' +
+    '<h3 class="sub-heading" style="margin-top:0;">What resistance can feel like</h3>' +
+    '<div class="body-text"><p>So something in you will push back. It won\'t feel like resistance — it\'ll feel like good reasons. Not now. Not this. Later, when things calm down.</p></div>' +
+    '<h3 class="sub-heading">Why certainty is seductive</h3>' +
+    '<div class="body-text"><p>The same mechanism makes being wrong expensive. Being wrong means something has to change, and change costs, so your system would rather you were certain. That\'s worth knowing about yourself:</p></div>' +
+    '<p class="emphasis-text">The feeling of already understanding your own patterns is exactly what the defence looks like from inside.</p>' +
+    '<div class="body-text"><p>That\'s what you\'re up against. Not weakness. A system doing its job.</p></div>' +
   '</div>' +
 
   // Two ways this stays hidden
