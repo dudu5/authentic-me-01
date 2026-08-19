@@ -76,7 +76,28 @@ function renderProgram(container) {
         '<svg id="previewDonut" viewBox="-10 -10 220 220" width="100%" height="100%"></svg>' +
         '<a href="#/needs" class="donut-center-btn">Start<br>Mapping</a>' +
       '</div>' +
+      '<div onclick="toggleLearnMore()" style="text-align:center; margin-top:16px; font-size:14px; color:var(--color-teal); cursor:pointer;" id="learnMoreBtn">Learn more →</div>' +
     '</div>' +
+  '</div>' +
+
+  // Learn more expandable
+  '<div class="card-expand program-anchor" id="learnMoreExpand">' +
+    '<span class="card-expand-close" onclick="toggleLearnMore()">✕</span>' +
+    '<div class="comparison-title">What this test is</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>22 short statements.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>You simply notice whether each one describes you right now.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Recognition, not deep thinking.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Takes about three minutes.</span></div>' +
+    '<div class="comparison-title" style="margin-top:24px;">What it gives you</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A quick reading of which needs are quiet and which ones are calling for attention.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>It\'s a first pass, not a diagnosis.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A starting coordinate — it shows you where you are.</span></div>' +
+    '<div class="comparison-title" style="margin-top:24px;">The key idea behind it</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Needs are the actual readings.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Wants are the strategies we build on top of them.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Most of us only know our wants.</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>This map helps you see the needs underneath.</span></div>' +
+    '<img src="Images/Ground4_Needs_Wants.png" alt="Needs and Wants" style="width:100%; border-radius:12px; margin-top:32px;">' +
   '</div>' +
 
   // Ten mornings
@@ -500,6 +521,21 @@ function toggleExplore(key) {
     // Desktop: expand below cards row
     panel.innerHTML = exploreContent[key] || '';
     panel.classList.add('open');
+    setTimeout(function() {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+
+function toggleLearnMore() {
+  var panel = document.getElementById('learnMoreExpand');
+  var btn = document.getElementById('learnMoreBtn');
+  if (panel.classList.contains('open')) {
+    panel.classList.remove('open');
+    btn.textContent = 'Learn more →';
+  } else {
+    panel.classList.add('open');
+    btn.textContent = 'Show less ←';
     setTimeout(function() {
       panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
