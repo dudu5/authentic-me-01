@@ -350,6 +350,260 @@
     width: auto;
   }
 
+  /* ── PROGRAM PAGE ── */
+  .program-scroll {
+    position: relative;
+    z-index: 2;
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 120px;
+  }
+
+  .program-anchor {
+    margin-left: 110px;
+    margin-right: 40px;
+  }
+
+  .program-hero {
+    min-height: 88vh;
+    max-width: 760px;
+    padding: 120px 0 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .program-hero h1 {
+    font-size: 64px;
+    font-weight: 500;
+    color: var(--text-bright);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  .program-meta {
+    font-size: 17px;
+    font-weight: 400;
+    color: #5FBFAB;
+    margin-bottom: 16px;
+  }
+
+  .program-primary {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-bright);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .program-secondary {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-bright);
+    opacity: 0.75;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+
+  .program-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--text-ghost);
+    margin: 32px 0;
+  }
+
+  .section-2 {
+    max-width: 1120px;
+    padding: 120px 0;
+  }
+
+  .section-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5FBFAB;
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--text-bright);
+    line-height: 1.05;
+    margin-bottom: 32px;
+    max-width: 1000px;
+  }
+
+  .section-intro {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-bright);
+    opacity: 0.8;
+    line-height: 1.5;
+    margin-bottom: 80px;
+    max-width: 760px;
+  }
+
+  .sub-heading {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-bright);
+    line-height: 1.2;
+    margin-top: 80px;
+    margin-bottom: 32px;
+    max-width: 760px;
+  }
+
+  .body-text {
+    font-size: 15px;
+    max-width: 760px;
+    font-weight: 400;
+    color: var(--text-visible);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .body-text p { margin-bottom: 16px; }
+
+  .emphasis-text {
+    font-size: 23px;
+    max-width: 760px;
+    font-weight: 400;
+    color: var(--text-bright);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+
+  .comparison {
+    display: flex;
+    gap: 0;
+    margin-bottom: 32px;
+  }
+
+  .comparison-col {
+    flex: 1;
+    max-width: 440px;
+  }
+
+  .comparison-col:first-child {
+    padding-right: 40px;
+    border-right: 1px solid var(--text-ghost);
+  }
+
+  .comparison-col:last-child {
+    padding-left: 40px;
+  }
+
+  .comparison-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-bright);
+    margin-bottom: 16px;
+  }
+
+  .comparison-body {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-visible);
+    line-height: 1.8;
+  }
+
+  .comparison-body p { margin-bottom: 16px; }
+
+  /* ── ARROW BULLETS ── */
+  .arrow-bullet {
+    display: flex;
+    gap: 0.4em;
+    margin-bottom: 4px;
+    color: var(--text-visible);
+  }
+
+  .arrow-bullet span:first-child {
+    flex-shrink: 0;
+  }
+
+  /* ── TWO COLUMN SECTION ── */
+  .split-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1120px;
+    padding: 120px 0;
+  }
+
+  .split-left {
+    flex: 1;
+    max-width: 520px;
+  }
+
+  .split-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .donut-preview {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .donut-center-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42%;
+    height: 42%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-visible);
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: transform 1.2s ease-in-out, color 1.2s ease-in-out;
+  }
+
+  .donut-center-btn:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    color: var(--text-bright);
+  }
+
+  .donut-ripple {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(97,204,186,0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    animation: donut-ripple-out 12s ease-out forwards;
+  }
+
+  @keyframes donut-ripple-out {
+    0% { width: 20px; height: 20px; opacity: 1; transform: translate(-50%, -50%) scale(0); }
+    30% { opacity: 0.6; }
+    60% { opacity: 0.3; }
+    100% { width: 250vw; height: 250vw; opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  }
+
+  @keyframes donut-wobble {
+    0% { transform: translate(-50%,-50%) scale(1, 1); }
+    10% { transform: translate(-50%,-50%) scale(1.15, 1.05); }
+    25% { transform: translate(-50%,-50%) scale(1.05, 1.18); }
+    40% { transform: translate(-50%,-50%) scale(1.18, 1.05); }
+    55% { transform: translate(-50%,-50%) scale(1.05, 1.15); }
+    70% { transform: translate(-50%,-50%) scale(1.15, 1.05); }
+    85% { transform: translate(-50%,-50%) scale(1.05, 1.10); }
+    100% { transform: translate(-50%,-50%) scale(1, 1); }
+  }
+
   /* ── CONTENT CONTAINER ── */
   #content {
     position: relative;
@@ -361,6 +615,177 @@
     align-items: center;
     justify-content: center;
   }
+
+  /* ── MOBILE TOP BAR ── */
+  .topbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    z-index: 12;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: var(--text-bright);
+    flex-shrink: 0;
+  }
+
+  .topbar-logo {
+    color: var(--text-bright);
+    height: 28px;
+  }
+
+  .topbar-logo svg {
+    height: 100%;
+    width: auto;
+  }
+
+  /* ── SIDEBAR OVERLAY (mobile) ── */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9;
+  }
+
+  .sidebar-backdrop.open {
+    display: block;
+  }
+
+  /* ── MOBILE BREAKPOINT ── */
+  @media (max-width: 768px) {
+    .topbar {
+      display: flex;
+    }
+
+    body {
+      display: block;
+    }
+
+    .sidebar:not(.open) {
+      display: none !important;
+    }
+
+    .sidebar.open {
+      display: flex !important;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 220px;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 11;
+    }
+
+    #content {
+      margin-left: 0;
+      width: 100vw;
+      padding-top: 56px;
+    }
+
+    .program-anchor {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .program-hero h1 {
+      font-size: 36px;
+    }
+
+    .program-hero {
+      padding: 60px 0 40px;
+      min-height: auto;
+    }
+
+    .section-heading {
+      font-size: 28px;
+      max-width: 100%;
+    }
+
+    .sub-heading {
+      font-size: 22px;
+      max-width: 100%;
+    }
+
+    .section-intro {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .body-text,
+    .emphasis-text {
+      max-width: 100%;
+    }
+
+    .emphasis-text {
+      font-size: 19px;
+    }
+
+    .comparison {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .comparison-col {
+      max-width: 100%;
+    }
+
+    .comparison-col:first-child {
+      padding-right: 0;
+      border-right: none;
+      border-bottom: 1px solid var(--text-ghost);
+      padding-bottom: 32px;
+    }
+
+    .comparison-col:last-child {
+      padding-left: 0;
+    }
+
+    .section-2 {
+      padding: 60px 0;
+    }
+
+    .program-secondary {
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+
+    .program-primary {
+      font-size: 22px;
+    }
+
+    .split-section {
+      flex-direction: column;
+      gap: 16px;
+      padding: 60px 0;
+    }
+
+    .split-left {
+      max-width: 100%;
+    }
+
+    .split-right {
+      width: 100vw;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+
+    .donut-preview {
+      max-width: 100%;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -368,6 +793,25 @@
   <!-- Background layers -->
   <div class="bg-layer" id="bgLayer"></div>
   <div class="color-overlay" id="colorOverlay"></div>
+
+  <!-- Mobile top bar -->
+  <div class="topbar">
+    <svg class="hamburger" id="hamburger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="4" y1="6" x2="20" y2="6"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="18" x2="20" y2="18"/>
+    </svg>
+    <div class="topbar-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1326 469">
+        <path d="M 29 256 C 91 218, 155 183, 213 169 C 233 164, 252 164, 273 168 C 288 171, 300 175, 314 180" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
+        <path d="M 213 169 C 235 151, 252 133, 263 113 C 272 96, 276 76, 278 43" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="14 13"/>
+        <text x="143" y="329" fill="currentColor" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="158" font-weight="700" letter-spacing="-5" textLength="1185" lengthAdjust="spacingAndGlyphs">authentic.me</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Sidebar backdrop (mobile) -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
   <!-- Sidebar navigation -->
   <nav class="sidebar">
@@ -430,6 +874,8 @@
   <!-- Content container -->
   <div id="content"></div>
 
+<script src="js/donut.js"></script>
+<script src="pages/program.js"></script>
 <script>
 // ────────────────────────────────────────
 // Theme colors: default teal + 12 hue-spaced
@@ -700,15 +1146,88 @@ function updateNav(route) {
   });
 }
 
+function renderRoute(match) {
+  var content = document.getElementById('content');
+  switch (match.name) {
+    case 'program':
+      renderProgram(content);
+      break;
+    default:
+      content.innerHTML = '';
+      break;
+  }
+}
+
 function onRouteChange() {
   var route = getRoute();
   var match = matchRoute(route);
   updateNav(route);
-  console.log('[router]', route, match);
+  renderRoute(match);
 }
 
 window.addEventListener('hashchange', onRouteChange);
 onRouteChange();
+
+// ────────────────────────────────────────
+// Mobile sidebar
+// ────────────────────────────────────────
+var sidebar = document.querySelector('.sidebar');
+var sidebarBackdrop = document.getElementById('sidebarBackdrop');
+var hamburger = document.getElementById('hamburger');
+
+function openSidebar() {
+  sidebar.classList.add('open');
+  sidebarBackdrop.classList.add('open');
+}
+
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  sidebarBackdrop.classList.remove('open');
+}
+
+hamburger.addEventListener('click', function() {
+  if (sidebar.classList.contains('open')) closeSidebar();
+  else openSidebar();
+});
+
+sidebarBackdrop.addEventListener('click', closeSidebar);
+
+// Close sidebar on nav click (mobile)
+document.querySelectorAll('.sidebar-card').forEach(function(card) {
+  card.addEventListener('click', function() {
+    if (window.innerWidth <= 768) closeSidebar();
+  });
+});
+
+// Swipe to open/close
+var touchStartX = 0;
+var touchCurrentX = 0;
+var swiping = false;
+
+document.addEventListener('touchstart', function(e) {
+  touchStartX = e.touches[0].clientX;
+  // Only start swipe from left edge (open) or when sidebar is open
+  if (touchStartX < 30 || sidebar.classList.contains('open')) {
+    swiping = true;
+  }
+});
+
+document.addEventListener('touchmove', function(e) {
+  if (!swiping) return;
+  touchCurrentX = e.touches[0].clientX;
+});
+
+document.addEventListener('touchend', function() {
+  if (!swiping) return;
+  var diff = touchCurrentX - touchStartX;
+  if (diff > 60 && !sidebar.classList.contains('open')) {
+    openSidebar();
+  } else if (diff < -60 && sidebar.classList.contains('open')) {
+    closeSidebar();
+  }
+  swiping = false;
+  touchCurrentX = 0;
+});
 </script>
 </body>
 </html>

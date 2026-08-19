@@ -31,10 +31,11 @@ From Elon's algorithm — this is a sequence, not a checklist. Each step only af
 
 1. **Reproduce.** What exactly happens? Get the actual data — not from memory.
 2. **Isolate.** Where in the chain does it break? Don't guess. Trace.
-3. **Understand.** Why does this code produce this result? Read the code — actually read it.
-4. **Fix at the root.** If the fix is more than 5 lines, question whether the surrounding code is the real problem.
-5. **Verify.** Test against the original broken case AND cases that already worked.
-6. **Only then deploy.**
+3. **Measure before hypothesizing.** Use the browser's actual output (DevTools Console, `getComputedStyle`, Computed tab) to see what the system is actually doing before guessing why. Multiple failed guesses waste more time than one measurement. Ask the user to check computed values — this is the fastest path to root cause.
+4. **Understand.** Why does this code produce this result? Read the code — actually read it. For CSS: check declaration order and specificity, not just the rules themselves.
+5. **Fix at the root.** If the fix is more than 5 lines, question whether the surrounding code is the real problem.
+6. **Verify.** Test against the original broken case AND cases that already worked.
+7. **Only then deploy.**
 
 ### Build Principles
 
