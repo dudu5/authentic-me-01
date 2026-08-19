@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1326" height="469" viewBox="0 0 1326 469">
+  <title>authentic.me — white logo</title>
+
+  <!-- Transparent background -->
+
+  <!-- Dashed swoosh -->
+  <path d="M 29 256
+           C 91 218, 155 183, 213 169
+           C 233 164, 252 164, 273 168
+           C 288 171, 300 175, 314 180"
+        fill="none"
+        stroke="#fff"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-dasharray="12 11"/>
+
+  <path d="M 213 169
+           C 235 151, 252 133, 263 113
+           C 272 96, 276 76, 278 43"
+        fill="none"
+        stroke="#fff"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-dasharray="12 11"/>
+
+  <!-- Wordmark. textLength preserves the long proportions of the PNG reference. -->
+  <text x="143" y="329"
+        fill="#fff"
+        font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-size="158"
+        font-weight="700"
+        letter-spacing="-5"
+        textLength="1185"
+        lengthAdjust="spacingAndGlyphs">authentic.me</text>
+</svg>
