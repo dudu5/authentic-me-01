@@ -1,15 +1,16 @@
 function renderProgram(container) {
-  container.innerHTML = '<div class="program-scroll">' +
-
-  // Hero
-  '<div class="hero-section program-anchor">' +
-    '<h1 class="hero-primary">You are the only<br class="mobile-br"> person you will<br><span style="color:var(--color-teal);">never</span><br class="mobile-br"> stop living with</h1>' +
-    '<p class="hero-secondary">Most of what you do every day runs on autopilot.<br class="desktop-br"> Without a map of yourself, you stay lost even when<br class="desktop-br"> everything looks fine from the outside.</p>' +
-    '<p class="hero-supporting">Quiet restlessness or emptiness on the inside.<br class="desktop-br"> High performance on the outside.<br class="desktop-br"> That gap is not a personal failing.<br class="desktop-br"> It is a missing map.</p>' +
-    '<div class="scroll-arrow" onclick="document.getElementById(\'s-what\').scrollIntoView({behavior:\'smooth\'})">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>' +
+  container.innerHTML =
+  '<div id="programHero">' +
+    '<div class="hero-section">' +
+      '<h1 class="hero-primary">You are the only<br class="mobile-br"> person you will<br><span style="color:var(--color-teal);">never</span><br class="mobile-br"> stop living with</h1>' +
+      '<p class="hero-secondary">Most of what you do every day runs on autopilot.<br class="desktop-br"> Without a map of yourself, you stay lost even when<br class="desktop-br"> everything looks fine from the outside.</p>' +
+      '<p class="hero-supporting">Quiet restlessness or emptiness on the inside.<br class="desktop-br"> High performance on the outside.<br class="desktop-br"> That gap is not a personal failing.<br class="desktop-br"> It is a missing map.</p>' +
+      '<div class="scroll-arrow" onclick="document.getElementById(\'s-what\').scrollIntoView({behavior:\'smooth\'})">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>' +
+      '</div>' +
     '</div>' +
   '</div>' +
+  '<div class="program-scroll">' +
 
   // What this actually is — leads the page
   '<div id="s-what" class="section-2 program-anchor" style="padding-top:120px;">' +
@@ -387,7 +388,7 @@ function initProgramNav() {
         if (active) active.classList.add('active');
       }
     });
-  }, { rootMargin: '-20% 0px -60% 0px' });
+  }, { rootMargin: '-20% 0px -60% 0px', root: contentEl });
 
   sections.forEach(function(s) {
     var el = document.getElementById(s.id);
@@ -399,21 +400,18 @@ function initProgramNav() {
   var contentEl = document.getElementById('content');
   var arrowEl = document.querySelector('.scroll-arrow');
 
-  // Start hidden
-  sidebarEl.classList.add('sidebar-hidden');
-  contentEl.classList.add('content-full');
+  // Start with nav hidden
+  sidebarEl.classList.add('nav-hidden');
 
   var heroObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        sidebarEl.classList.add('sidebar-hidden');
-        contentEl.classList.add('content-full');
+        sidebarEl.classList.add('nav-hidden');
       } else {
-        sidebarEl.classList.remove('sidebar-hidden');
-        contentEl.classList.remove('content-full');
+        sidebarEl.classList.remove('nav-hidden');
       }
     });
-  }, { threshold: 0 });
+  }, { threshold: 0, root: contentEl });
 
   if (arrowEl) heroObserver.observe(arrowEl);
 
@@ -423,8 +421,7 @@ function initProgramNav() {
     navCards.forEach(function(c) { c.style.display = ''; });
     observer.disconnect();
     heroObserver.disconnect();
-    sidebarEl.classList.remove('sidebar-hidden');
-    contentEl.classList.remove('content-full');
+    sidebarEl.classList.remove('nav-hidden');
   };
 }
 
