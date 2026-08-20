@@ -939,6 +939,26 @@
     max-height: 300px;
   }
 
+  /* ── BIO ROW ── */
+  .bio-row {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 768px) {
+    .bio-row {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .bio-row .body-text {
+      text-align: left;
+    }
+  }
+
   /* ── NEEDS PAGE ── */
   .needs-col-left {
     flex: 1;
@@ -1324,18 +1344,6 @@
 
   <!-- Sidebar navigation -->
   <nav class="sidebar">
-    <a class="sidebar-card active" href="#/" data-route="/">
-      <div class="sidebar-label">Introduction</div>
-    </a>
-    <a class="sidebar-card" href="#/how" data-route="/how">
-      <div class="sidebar-label">How</div>
-    </a>
-    <a class="sidebar-card" href="#/needs" data-route="/needs">
-      <div class="sidebar-label">Your Needs</div>
-    </a>
-    <a class="sidebar-card" href="#/program" data-route="/program">
-      <div class="sidebar-label">The Program</div>
-    </a>
 
     <!-- Footer: brand name, toggles theme picker -->
     <span class="sidebar-footer" id="themeToggle">
@@ -1609,8 +1617,6 @@ applyBg();
 // ────────────────────────────────────────
 // Router
 // ────────────────────────────────────────
-var navLinks = document.querySelectorAll('.sidebar-card[data-route]');
-
 function getRoute() {
   var hash = window.location.hash || '#/';
   // Strip the leading #
@@ -1640,16 +1646,7 @@ function matchRoute(route) {
 }
 
 function updateNav(route) {
-  // Determine which top-level nav item to highlight
-  var activeRoute = '/';
-  if (route.startsWith('/how')) activeRoute = '/how';
-  else if (route.startsWith('/needs')) activeRoute = '/needs';
-  else if (route.startsWith('/program')) activeRoute = '/program';
-
-  navLinks.forEach(function(link) {
-    var linkRoute = link.getAttribute('data-route');
-    link.classList.toggle('active', linkRoute === activeRoute);
-  });
+  // No shell nav items — program nav handles highlighting
 }
 
 function renderRoute(match) {
@@ -1668,15 +1665,13 @@ function renderRoute(match) {
     content._needsCleanup = null;
   }
   switch (match.name) {
-    case 'program':
-      renderProgram(content);
-      break;
     case 'needs':
       content.classList.add('needs-layout');
       renderNeeds(content);
       break;
+    case 'program':
     default:
-      content.innerHTML = '';
+      renderProgram(content);
       break;
   }
 }
