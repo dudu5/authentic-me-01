@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Locomotion and Flow</title>
+  <desc id="desc">A continuous wave travelling through three points.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108" stroke-width="5.5"/>
+    <path d="M54 139c29-58 53 58 79 0s45-48 69-4"/>
+    <path d="M202 135l-13-2 6-11" stroke-width="5"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="78" cy="116" r="7"/><circle cx="128" cy="147" r="7"/><circle cx="177" cy="111" r="7"/>
+  </g>
+</svg>

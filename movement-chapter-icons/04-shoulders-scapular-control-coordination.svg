@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Shoulders, Scapular Control and Coordination</title>
+  <desc id="desc">Two mirrored arcs held in coordinated balance.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108" stroke-width="5.5"/>
+    <path d="M70 82c34 6 49 25 58 46-9 21-24 40-58 46"/>
+    <path d="M186 82c-34 6-49 25-58 46 9 21 24 40 58 46"/>
+    <path d="M95 128h66" stroke-width="4"/>
+  </g>
+  <circle cx="128" cy="128" r="7" fill="currentColor"/>
+</svg>

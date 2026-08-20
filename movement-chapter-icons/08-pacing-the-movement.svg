@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Pacing the Movement</title>
+  <desc id="desc">Three moments separated by increasing space.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108"/>
+    <path d="M65 128h28M107 128h50M171 128h20"/>
+    <path d="M95 84v88M160 84v88" stroke-width="4"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="65" cy="128" r="8"/><circle cx="107" cy="128" r="8"/><circle cx="171" cy="128" r="8"/>
+  </g>
+</svg>

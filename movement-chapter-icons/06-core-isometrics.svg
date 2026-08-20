@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Core and Isometrics</title>
+  <desc id="desc">A stable centre held by four equal forces.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108" stroke-width="5.5"/>
+    <rect x="102" y="102" width="52" height="52" rx="8"/>
+    <path d="M128 65v22M128 169v22M65 128h22M169 128h22"/>
+  </g>
+  <circle cx="128" cy="128" r="9" fill="currentColor"/>
+</svg>

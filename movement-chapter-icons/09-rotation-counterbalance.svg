@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Rotation and Counterbalance</title>
+  <desc id="desc">A balanced cross held within a rotating arc.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108" stroke-width="5.5"/>
+    <path d="M82 82l92 92M174 82l-92 92"/>
+    <path d="M64 128a64 64 0 0 1 101-52" stroke-width="5"/>
+    <path d="M165 76l-13-1 4 12" stroke-width="5"/>
+  </g>
+  <circle cx="128" cy="128" r="9" fill="currentColor"/>
+</svg>

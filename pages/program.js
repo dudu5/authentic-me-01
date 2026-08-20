@@ -51,54 +51,80 @@ function renderProgram(container) {
     '</div>' +
   '</div>' +
 
-  // The problem with the inner game
-  '<div id="s-tough" class="split-section program-anchor">' +
+  // Playing both games
+  '<div id="s-both" class="section-2 program-anchor" style="padding-bottom:0;">' +
+    '<div class="section-label">Playing both games</div>' +
+    '<h2 class="section-heading">How this actually works</h2>' +
+
+    '<h3 class="sub-heading">Externalise it</h3>' +
+    '<div class="body-text">' +
+      '<p>The moment you put "where I am" and "where I\'m aiming" into words, you can see it.</p>' +
+      '<p>Articulation is mapping. Until it\'s outside you, the mind keeps swimming in it.</p>' +
+    '</div>' +
+    '<img src="Images/2_coordinates.png" alt="Coordinates" style="width:100%; max-width:760px; opacity:0.88; margin-top:24px;">' +
+    '<div class="body-text" style="margin-top:24px;">' +
+      '<p>The first version will be rough. That\'s normal. The resolution starts low.</p>' +
+      '<p>If you don\'t know — that\'s okay. Not knowing is also a position.</p>' +
+      '<p>You come back, refine it, and the picture gets clearer over time — like shaping a sculpture, or mapping terrain you\'ve actually walked.</p>' +
+    '</div>' +
+
+    '<img src="Images/The_spiral.png" alt="The spiral" style="width:100%; max-width:760px; opacity:0.88; margin:8px 0 24px;">' +
+    '<p class="emphasis-text">Repeat.</p>' +
+
+    '<h3 class="sub-heading">Needs vs Wants</h3>' +
+    '<div class="body-text">' +
+      '<p>The real game is keeping what you do out there connected to what\'s actually going on inside you.</p>' +
+      '<p>Needs are the signal. Wants are the strategies we build on top of them.</p>' +
+      '<p>Most of us are carrying a lot of old strategies — built years ago, often without ever checking the actual signal.</p>' +
+    '</div>' +
+    '<img src="Images/Ground4_Needs_Wants.png" alt="Needs and Wants" style="width:100%; max-width:760px; opacity:0.88; margin:0 0 8px; clip-path:inset(15% 0 0 0); margin-top:-40px;">' +
+    '<div class="body-text">' +
+      '<p>So we run on autopilot.</p>' +
+      '<p>We chase more money, more success, more freedom… while the real need underneath stays unmet.</p>' +
+      '<p>When you only know your wants, you\'re mostly playing the outer game.</p>' +
+      '<p>When you start seeing the needs, you can finally check whether the two games are connected.</p>' +
+    '</div>' +
+
+  '</div>' +
+
+  // Start right now (split with donut)
+  '<div class="split-section program-anchor" style="padding:0;">' +
     '<div class="split-left">' +
-      '<div class="section-label">Why this is harder than it looks</div>' +
-      '<h2 class="section-heading">Three things make it <span style="color:var(--color-red);">tough</span></h2>' +
-      '<div class="comparison-title">1. Both games keep moving</div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>The outer world changes. What you need also changes.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A reading you took once doesn\'t stay accurate forever.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>There\'s no "figure it out once and you\'re done."</span></div>' +
-      '<div class="comparison-title" style="margin-top:24px;">2. Your instrument is mistuned</div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Not broken — just calibrated by circumstances you didn\'t choose.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>The signal reaches you already bent.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Reading it accurately is a skill, not just a matter of paying more attention.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>And those muscles are untrained — nothing ever asked you to use them.</span></div>' +
-      '<div class="comparison-title" style="margin-top:24px;">3. Your system defends what\'s already there</div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Not because it\'s good for you — because it\'s automated.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Running the old patterns is almost free.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Changing them means questioning something your system stopped questioning years ago.</span></div>' +
-      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>That costs energy your biology is built to protect.</span></div>' +
+      '<h3 class="sub-heading" style="margin-top:0;">Start right now</h3>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Free</span></div>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>3–5 minutes</span></div>' +
+      '<div style="height:12px;"></div>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>22 short statements</span></div>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>See which needs are calling for your attention</span></div>' +
+      '<div style="height:12px;"></div>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>No email. No sign-up. No bullshit.</span></div>' +
+      '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Your data stays yours. We don\'t store it.</span></div>' +
+      '<a href="#/needs" style="display:inline-block; margin-top:24px; padding:12px 32px; border:1px solid var(--color-teal); border-radius:999px; font-size:16px; font-weight:400; color:var(--color-teal); text-decoration:none; cursor:pointer; transition:all 0.3s ease-out;">Start Mapping</a>' +
     '</div>' +
     '<div class="split-right">' +
       '<div class="donut-preview">' +
-        '<svg id="previewDonut" viewBox="-10 -10 220 220" width="100%" height="100%"></svg>' +
-        '<a href="#/needs" class="donut-center-btn">Start<br>Mapping</a>' +
+        '<svg id="startDonut" viewBox="-10 -10 220 220" width="100%" height="100%"></svg>' +
+        '<div class="donut-center-btn" style="cursor:default;">Needs<br>Signal</div>' +
       '</div>' +
-      '<div onclick="toggleLearnMore()" style="text-align:center; margin-top:16px; font-size:14px; color:var(--color-teal); cursor:pointer;" id="learnMoreBtn">Learn more →</div>' +
     '</div>' +
   '</div>' +
 
-  // Learn more expandable
-  '<div class="card-expand program-anchor" id="learnMoreExpand">' +
-    '<span class="card-expand-close" onclick="toggleLearnMore()">✕</span>' +
-    '<div class="comparison-title">What this test is</div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>22 short statements.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>You simply notice whether each one describes you right now.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Recognition, not deep thinking.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Takes about three minutes.</span></div>' +
-    '<div class="comparison-title" style="margin-top:24px;">What it gives you</div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A quick reading of which needs are quiet and which ones are calling for attention.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>It\'s a first pass, not a diagnosis.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>A starting coordinate — it shows you where you are.</span></div>' +
-    '<div class="comparison-title" style="margin-top:24px;">The key idea behind it</div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Needs are the actual readings.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Wants are the strategies we build on top of them.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Most of us only know our wants.</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>This map helps you see the needs underneath.</span></div>' +
-    '<img src="Images/Ground4_Needs_Wants.png" alt="Needs and Wants" style="width:100%; border-radius:12px; margin-top:32px;">' +
+  // Don't do it alone (new section)
+  '<div class="section-2 program-anchor" style="padding-top:5px;">' +
+
+    '<h3 class="sub-heading" style="margin-top:0;"><span style="color:var(--color-red);">Don\'t</span> do it alone</h3>' +
+    '<div class="body-text">' +
+      '<p>Doing this by yourself is possible, but slow and fragile.</p>' +
+      '<p>Having other men in it with you changes the game:</p>' +
+    '</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>It\'s harder to cheat when you\'re actually seen</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Being witnessed changes how the hard things feel</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Blind spots become visible</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>You get perspectives and experience you can\'t give yourself</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>The struggle becomes normal instead of something wrong with you</span></div>' +
+
   '</div>' +
+
 
   // Ten mornings
   '<div id="s-program" class="section-2 program-anchor">' +
@@ -118,6 +144,30 @@ function renderProgram(container) {
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Practice at the part that\'s hard alone</span></div>' +
     '<div class="arrow-bullet"><span style="color:var(--color-teal);">→</span> <span>Coming back to it</span></div>' +
     '<div class="body-text"><p>You leave knowing how to locate yourself, and with ten days of evidence that you can keep doing it.</p></div>' +
+  '</div>' +
+
+  // What ten mornings gives you
+  '<div id="s-gives" class="section-2 program-anchor">' +
+    '<div class="section-label">What it brings</div>' +
+    '<h2 class="section-heading">What ten mornings gives you</h2>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The ground the game is played on</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The main moves</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Ten consecutive days of practice alongside other men</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A clear way to locate yourself</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Evidence that you can keep coming back to it</span></div>' +
+    '<div style="height:16px;"></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The habit of checking your position — instead of letting autopilot run the show</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A simple daily structure that doesn\'t rely on willpower</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Practice speaking what\'s actually true out loud</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Real-time feedback from other men who are in the same work</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A small group that sees you doing the work, not just the results</span></div>' +
+    '<div class="comparison-title" style="margin-top:32px;">From the daily movement</div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Wakes the body before the mind takes over</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Gets energy moving instead of starting from stuck</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Helps you notice where you\'re actually at</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Builds the habit of showing up even when motivation is low</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Creates a clear start to the morning</span></div>' +
+    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Lets you meet your own edge without turning it into a performance</span></div>' +
   '</div>' +
 
   // What we actually do
@@ -231,41 +281,26 @@ function renderProgram(container) {
     '</div>' +
   '</div>' +
 
-  // What ten mornings gives you
-  '<div id="s-gives" class="section-2 program-anchor">' +
-    '<div class="section-label">What it brings</div>' +
-    '<h2 class="section-heading">What ten mornings gives you</h2>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The ground the game is played on</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The main moves</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Ten consecutive days of practice alongside other men</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A clear way to locate yourself</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Evidence that you can keep coming back to it</span></div>' +
-    '<div style="height:16px;"></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>The habit of checking your position — instead of letting autopilot run the show</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A simple daily structure that doesn\'t rely on willpower</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Practice speaking what\'s actually true out loud</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Real-time feedback from other men who are in the same work</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>A small group that sees you doing the work, not just the results</span></div>' +
-    '<div class="comparison-title" style="margin-top:32px;">From the daily movement</div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Wakes the body before the mind takes over</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Gets energy moving instead of starting from stuck</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Helps you notice where you\'re actually at</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Builds the habit of showing up even when motivation is low</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Creates a clear start to the morning</span></div>' +
-    '<div class="arrow-bullet"><span style="color:var(--color-teal);">✓</span> <span>Lets you meet your own edge without turning it into a performance</span></div>' +
-  '</div>' +
-
   // Who we are
   '<div id="s-who" class="section-2 program-anchor">' +
     '<div class="section-label">Who we are</div>' +
-    '<h2 class="section-heading">TBD</h2>' +
     '<div style="display:flex; gap:40px; align-items:flex-start; margin-top:32px;">' +
-      '<img src="Images/Aleks.jpeg" alt="Aleks" style="width:180px; height:180px; border-radius:50%; object-fit:cover;">' +
-      '<div class="body-text" style="max-width:500px;"><p>TBD</p></div>' +
+      '<img src="Images/Aleks.jpeg" alt="Olek" style="width:180px; height:180px; border-radius:50%; object-fit:cover;">' +
+      '<div class="body-text" style="max-width:500px;">' +
+        '<p><strong>Olek</strong></p>' +
+        '<p>Olek spent a decade mapping systems for organisations with a high client-centric focus — until he realised he was his own biggest client, and the one he was least focused on. By not seeing himself, he had been living in a high-functioning depression without recognising it.</p>' +
+        '<p>He stepped away from his assignments and turned those same observational skills inward. He trained in coaching, mediation, Transformational Presence and Transformational Communication.</p>' +
+        '<p>He now works with men who look successful from the outside while something quieter stays unmet. He developed the method and process. He guides the mapping work, holds the space, and stays in the process alongside the group.</p>' +
+      '</div>' +
     '</div>' +
     '<div style="display:flex; gap:40px; align-items:flex-start; margin-top:32px;">' +
-      '<img src="Images/Mike.jpg" alt="Mike" style="width:180px; height:180px; border-radius:50%; object-fit:cover;">' +
-      '<div class="body-text" style="max-width:500px;"><p>TBD</p></div>' +
+      '<img src="Images/Mike.png" alt="Mike" style="width:180px; height:180px; border-radius:50%; object-fit:cover;">' +
+      '<div class="body-text" style="max-width:500px;">' +
+        '<p><strong>Mike</strong></p>' +
+        '<p>Mike is a movement guy. He is the founder of the "In Hope to Inspire" initiative and a moderator of philosophy forums. Having lived across the globe, he learns from local teachers in every country he visits.</p>' +
+        '<p>He has completed 1,000+ hours of yoga teacher trainings and spent countless more on mats and floors, practising calisthenics and functional training, all with the curiosity of a child.</p>' +
+        '<p>He is a creative soul who tries to find symbolism in everyday moments. He is here to lead the movement and breathwork, co-host the meditations and... bring the vibes.</p>' +
+      '</div>' +
     '</div>' +
   '</div>' +
 
@@ -292,10 +327,7 @@ function renderProgram(container) {
     '<h2 class="section-heading">The honest filter.</h2>' +
     '<div style="display:flex; flex-direction:column; gap:16px; max-width:760px;">' +
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you\'re in crisis right now.</strong> There\'s no clinical support in this room, and a timed round at 5:30 is the wrong container for acute distress. Get that first. This will still be here.</p></div></div>' +
-      '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you want to be told how it is.</strong> We work through the map together rather than teaching it at you. If you want someone with answers, you\'ll find this frustrating.</p></div></div>' +
-      '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you want something fixed in two weeks.</strong> It won\'t be, and we\'d rather say so now.</p></div></div>' +
       '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you can\'t do all ten.</strong> Sessions are recorded, but the group is the mechanism, not the content. Half the mornings isn\'t half the value.</p></div></div>' +
-      '<div style="display:flex; gap:16px; align-items:flex-start;"><svg viewBox="0 0 24 24" style="width:20px; height:20px; stroke:#E8655A; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; fill:none; flex-shrink:0; margin-top:2px;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><div class="body-text" style="margin-bottom:0;"><p><strong>If you already have a daily practice, a map, and people who see you in it</strong> — you probably don\'t need this. If you have the first two and not the third, you might.</p></div></div>' +
     '</div>' +
   '</div>' +
 
@@ -309,11 +341,11 @@ function renderProgram(container) {
 function initProgramNav() {
   var sections = [
     { id: 's-what', label: 'What this actually is' },
-    { id: 's-tough', label: 'Why it\'s hard' },
+    { id: 's-both', label: 'Playing both games' },
     { type: 'divider' },
     { id: 's-program', label: 'The program' },
-    { id: 's-do', label: 'What we do' },
     { id: 's-gives', label: 'What it brings' },
+    { id: 's-do', label: 'What we do' },
     { type: 'divider' },
     { id: 's-who', label: 'Who we are' },
     { id: 's-details', label: 'The details' },
@@ -413,7 +445,19 @@ var exploreContent = {
       '<p>Twenty minutes at the start. Energy moving in the body before anything else happens.</p>' +
       '<p>It also does something else. The sequence builds across the two weeks, and somewhere in that you meet your own edge — the point where your mind wants a bigger step than your body is currently at. What you do there is worth watching. Whether you push past it. Whether the critic shows up when someone else goes further. Whether you can find the place where you\'re working and not straining.</p>' +
       '<p><strong>Finding your own level isn\'t a compromise. It\'s the skill.</strong></p>' +
-    '</div>',
+    '</div>' +
+    '<div class="program-divider" style="margin:32px 0;"></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/01-mapping-the-body.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">1. Mapping the Body</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The whole body wakes up gradually as attention moves from one joint to the next. We check where we are at the start and notice what feels open, restricted, light or heavy today. This first scan gives us a reference point for the rest of the journey.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/02-spinal-mobilization.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">2. Spinal Mobilization</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The spine begins to move in waves, curves and individual segments. Breath supports the movement while unnecessary tension starts to soften. This reduces stiffness and prepares the spine to support the rest of the body.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/03-feet-ankles-knees.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">3. Feet, Ankles & Knees</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>We explore and gradually increase the available range in the feet, ankles and knees. By changing how we place the feet and distribute our weight, we discover what gives us stability. This creates a stronger foundation for balancing, squatting and moving in daily life.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/04-shoulders-scapular-control-coordination.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">4. Shoulders, Scapular Control & Coordination</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The shoulder blades glide while the arms explore different directions and rhythms. Coordination challenges the brain as much as the body. Better control around the shoulders creates greater freedom, stability and confidence when we reach, carry or support weight.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/05-hip-mobility-opening.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">5. Hip Mobility & Opening</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The hips loosen up as they explore rotation, shifting and their available range. The pelvis remains attentive while the legs learn to move more independently. This creates more space and ease in squatting, stepping and transitioning between positions.</p></div></div></div>' +
+    '<div style="margin:32px 0; padding:16px 0; border-top:1px solid var(--text-ghost); border-bottom:1px solid var(--text-ghost);"><div class="comparison-title" style="margin:0;">The Weekend Challenge</div><div class="body-text" style="margin-top:8px;"><p>We set an intention for how we want to approach the weekend practice, whether to continue or rest. Afterwards, we pause and notice what we actually chose to do. We reflect on the feeling of accomplishment, the need for rest or the sense that we may have missed something. All is welcome, as long as it is noticed.</p></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/06-core-isometrics.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">6. Core & Isometrics</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The centre of the body creates stability while movement slows down or pauses. Isometric holds develop muscular strength and endurance with little or no movement through the joints. This improves joint stability and helps the body support both movement and everyday posture.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/07-locomotion-flow.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">7. Locomotion & Flow</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The body travels through space using the hands, feet and changing points of support. Familiar positions begin connecting into playful sequences. Coordination, adaptability and confidence grow through locomotion, the art of moving.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/08-pacing-the-movement.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">8. Pacing the Movement</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The same movement changes when we adjust its speed, pauses and transitions. Moving slowly reveals where control is present and where momentum usually takes over. By simply slowing down a movement that often goes unnoticed at a rapid pace, we discover something new about the body.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/09-rotation-counterbalance.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">9. Rotation & Counterbalance</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The body rotates while one side supports or balances the movement of the other. Attention crosses the midline and connects opposite limbs. This develops spatial awareness, coordination and whole-body integration.</p></div></div></div>' +
+    '<div class="movement-chapter" onclick="toggleMovementChapter(this)"><div class="movement-chapter-header"><img class="movement-icon" src="movement-chapter-icons/10-integration.svg" style="width:32px; height:32px;"><div class="comparison-title" style="margin:0;">10. Integration</div><span class="movement-chapter-toggle">+</span></div><div class="movement-chapter-body"><div class="body-text"><p>The body brings together the patterns, qualities and skills explored throughout the process. Familiar movements connect with greater choice, awareness and fluidity. The practice becomes something we can understand, adapt, make our own and integrate into our routines.</p></div></div></div>',
   attention: '<span class="card-expand-close" onclick="toggleExplore(null)">✕</span>' +
     '<div class="body-text">' +
       '<p>Meditation or breathing, after the movement. You\'re training attention all morning, but here it\'s the whole task rather than a background condition.</p>' +
@@ -485,19 +529,14 @@ function toggleExplore(key) {
   }
 }
 
-function toggleLearnMore() {
-  var panel = document.getElementById('learnMoreExpand');
-  var btn = document.getElementById('learnMoreBtn');
-  if (panel.classList.contains('open')) {
-    panel.classList.remove('open');
-    btn.textContent = 'Learn more →';
-  } else {
-    panel.classList.add('open');
-    btn.textContent = 'Show less ←';
-    setTimeout(function() {
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
-  }
+
+
+function toggleMovementChapter(el) {
+  var wasOpen = el.classList.contains('open');
+  document.querySelectorAll('.movement-chapter.open').forEach(function(c) {
+    c.classList.remove('open');
+  });
+  if (!wasOpen) el.classList.add('open');
 }
 
 function initProgramDonut() {
@@ -512,14 +551,14 @@ function initProgramDonut() {
     { name: 'Meaning', score: 3, icon: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>' }
   ];
 
-  var svg = document.getElementById('previewDonut');
+  var svg = document.getElementById('startDonut');
   if (!svg) return;
 
   function renderRandom() {
     mockParents.forEach(function(p) {
       p.score = Math.floor(Math.random() * 7) + 1;
     });
-    Donut.render('previewDonut', mockParents, {
+    Donut.render('startDonut', mockParents, {
       outline: true,
       showLabels: true,
       noHover: true

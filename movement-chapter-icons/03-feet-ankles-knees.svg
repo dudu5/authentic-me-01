@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" color="#20262B" role="img" aria-labelledby="title desc">
+  <title id="title">Feet, Ankles and Knees</title>
+  <desc id="desc">Three connected points forming a stable triangular foundation.</desc>
+  <g fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="128" cy="128" r="108"/>
+    <path d="M128 69L78 177h100z"/>
+    <path d="M62 195h132"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="128" cy="69" r="8"/><circle cx="78" cy="177" r="8"/><circle cx="178" cy="177" r="8"/>
+  </g>
+</svg>
